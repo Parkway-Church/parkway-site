@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { bibleQuotes, type BibleQuote } from '../data/bibleQuotes';
 
 const QuoteBanner: React.FC = () => {
+    const [quote, setQuote] = useState<BibleQuote | null>(null);
+
+    useEffect(() => {
+        // Select a random quote on mount
+        const randomIndex = Math.floor(Math.random() * bibleQuotes.length);
+        setQuote(bibleQuotes[randomIndex]);
+    }, []);
+
+    if (!quote) return null; // Or a loading skeleton if preferred
+
     return (
         <section className="relative h-96 w-full overflow-hidden flex items-center justify-center">
             {/* Background with Parallax-like fixed attachment */}
@@ -21,9 +32,9 @@ const QuoteBanner: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="text-xl md:text-2xl font-bold uppercase tracking-widest leading-relaxed mb-8"
                 >
-                    I will extol the LORD at all times; his praise will always be on my lips.
+                    {quote.text}
                     <br />
-                    <span className="text-brand-red mt-2 block">PSALM 34:1</span>
+                    <span className="text-brand-red mt-2 block">{quote.reference}</span>
                 </motion.p>
 
                 <motion.button

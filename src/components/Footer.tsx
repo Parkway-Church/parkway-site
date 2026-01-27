@@ -26,10 +26,10 @@ const Footer: React.FC = () => {
                 <div>
                     <h4 className="font-bold uppercase tracking-wider mb-6">Who We Are</h4>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-white transition-colors">Our Values</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Statement of Faith</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Leadership Team</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Job Opportunities</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Our Mission</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Our Statement of Faith</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Our Leadership Team</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">School</a></li>
                     </ul>
                 </div>
 
@@ -37,11 +37,12 @@ const Footer: React.FC = () => {
                 <div>
                     <h4 className="font-bold uppercase tracking-wider mb-6">Get Connected</h4>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-white transition-colors">Church Online</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Connect Track</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Connect Groups</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">LocalKids</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Local Yth</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Parkway Online</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Life Groups</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Journey Land</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Journey Kids</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">The Park Youth</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Events</a></li>
                     </ul>
                 </div>
 
@@ -50,7 +51,8 @@ const Footer: React.FC = () => {
                     <h4 className="font-bold uppercase tracking-wider mb-6">Contact Us</h4>
                     <p className="text-sm text-gray-400 mb-4">
                         1200 S. Flamingo Rd<br />
-                        Davie, FL 33325
+                        Davie, FL 33325<br />
+                        (954) 476-0020<br />
                     </p>
                     <p className="text-sm text-gray-400">
                         Sundays @ 10 am
