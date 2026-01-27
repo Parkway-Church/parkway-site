@@ -14,7 +14,7 @@ const NextGen: React.FC = () => {
                         <div className="w-full h-80 overflow-hidden mb-6 relative group">
                             <img
                                 src="https://images.unsplash.com/photo-1502086223501-68196195861b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="Local Kids"
+                                alt="Journey Kids"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
@@ -36,7 +36,7 @@ const NextGen: React.FC = () => {
                         <div className="w-full h-80 overflow-hidden mb-6 relative group">
                             <img
                                 src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="Local Youth"
+                                alt="The Park Youth"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>

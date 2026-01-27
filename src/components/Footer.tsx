@@ -9,10 +9,10 @@ const Footer: React.FC = () => {
                 {/* Brand / Logo Area */}
                 <div className="md:col-span-1">
                     <a href="/" className="text-2xl font-bold tracking-tighter uppercase block mb-6">
-                        THE <span className="text-brand-red">LOCAL</span> CHURCH
+                        PARKWAY <span className="text-brand-red">CHRISTIAN</span> CHURCH
                     </a>
                     <p className="text-gray-400 text-sm mb-6">
-                        The Perfect Place For Imperfect People
+                        Come, Journey With Us
                     </p>
                     <div className="flex space-x-4">
                         <a href="#" className="hover:text-brand-red transition-colors"><Facebook size={20} /></a>
@@ -49,18 +49,17 @@ const Footer: React.FC = () => {
                 <div>
                     <h4 className="font-bold uppercase tracking-wider mb-6">Contact Us</h4>
                     <p className="text-sm text-gray-400 mb-4">
-                        1770 S Flamingo Rd<br />
+                        1200 S. Flamingo Rd<br />
                         Davie, FL 33325
                     </p>
                     <p className="text-sm text-gray-400">
-                        Thursdays @ 6:30 pm<br />
-                        Sundays @ 8:30 am | 10 am | 11:30 am | 1 pm
+                        Sundays @ 10 am
                     </p>
                 </div>
             </div>
 
             <div className="container mx-auto mt-16 pt-8 border-t border-gray-900 text-center text-xs text-gray-600">
-                © {new Date().getFullYear()} The Local Church. All Rights Reserved.
+                © {new Date().getFullYear()} Parkway Christian Church. All Rights Reserved.
             </div>
         </footer>
     );
