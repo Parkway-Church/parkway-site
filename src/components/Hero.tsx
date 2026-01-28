@@ -1,18 +1,40 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero: React.FC = () => {
+    // Array of available banner images
+    const bannerImages = [
+        '/images/home_banner/autumn-2026-01-06-09-12-57-utc (1).jpg',
+        '/images/home_banner/city-street-at-night-with-bokeh-lights-2026-01-08-02-41-38-utc (1).jpg',
+        '/images/home_banner/dark-alley-city-boulevard-surrounded-by-trees-2026-01-05-22-40-46-utc (1).jpg',
+        '/images/home_banner/road-into-the-distance-2026-01-07-00-28-14-utc (1).jpg',
+        '/images/home_banner/road-into-the-distance-2026-01-09-11-46-17-utc (1).jpg'
+    ];
+
+    // Select random image once on mount
+    const [bgImage] = React.useState(() => {
+        const randomIndex = Math.floor(Math.random() * bannerImages.length);
+        return bannerImages[randomIndex];
+    });
+
+    // Parallax effect
+    const { scrollY } = useScroll();
+    const y = useTransform(scrollY, [0, 1000], [0, 400]);
+
     return (
         <section className="relative h-screen w-full overflow-hidden">
-            {/* Background Image/Video Placeholder */}
-            <div className="absolute inset-0">
+            {/* Background Image with Parallax */}
+            <motion.div
+                style={{ y }}
+                className="absolute inset-0 w-full h-[120%] -top-[10%]"
+            >
                 <img
-                    src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-                    alt="People gathering"
-                    className="w-full h-full object-cover"
+                    src={bgImage}
+                    alt="Parkway Christian Church"
+                    className="w-full h-full object-cover saturate-[.2]"
                 />
                 <div className="absolute inset-0 bg-black/40" />
-            </div>
+            </motion.div>
 
             {/* Content Overlay */}
             <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">

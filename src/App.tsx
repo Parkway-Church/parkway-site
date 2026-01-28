@@ -10,6 +10,7 @@ import Sermons from './pages/Sermons';
 import Videos from './pages/Videos';
 import Gallery from './pages/Gallery';
 import Volunteers from './pages/Volunteers';
+import ParkYouth from './pages/ParkYouth';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/videos" element={<Videos />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/volunteers" element={<Volunteers />} />
+        <Route path="/youth" element={<ParkYouth />} />
       </Routes>
       <Footer />
     </div>
