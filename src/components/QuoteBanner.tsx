@@ -39,7 +39,7 @@ const QuoteBanner: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-brand-red text-white font-bold py-3 px-8 rounded shadow-lg hover:bg-red-700 transition-colors uppercase tracking-wider"
                 >
-                    I'm All In
+                    Connect With Us
                 </motion.button>
             </div>
         </section>

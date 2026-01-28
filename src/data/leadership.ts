@@ -30,9 +30,9 @@ export const leadershipData: Leader[] = [
     },
     {
         id: '4',
-        name: "Youth Pastor Name",
-        role: "Youth Pastor",
-        bio: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-        imageUrl: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        name: "Christian Torres",
+        role: "Youth Group Leader & Assistant Worship Leader",
+        bio: "Christian Hernandez is passionate about equipping students with the necessary tools to live a life dedicated to Jesus. Christian loves helping students grow in their relationship with Christ and to see them share that with others. Christian is currently working to finish his Bachelor’s in Psychology. He has experience working in other youth ministries and youth programs, which have led him to commit to God’s calling for him to work with students. 1 Timothy 4:12",
+        imageUrl: "/images/leadership/TorresChristian_HEIC.avif"
     }
 ];
