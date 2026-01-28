@@ -72,7 +72,7 @@ const StatementOfFaith = () => {
                         transition={{ delay: 0.3, duration: 0.8 }}
                         className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
                     >
-                        Our faith is anchored in scripture and centered on Jesus. Here is a summary of our core beliefs.
+                        The heartbeat of our faith is Jesus at the center of everything we believe and God’s Word shaping how we live. Here’s what guides our core beliefs.
                     </motion.p>
                 </div>
             </section>

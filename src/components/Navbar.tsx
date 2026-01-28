@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -79,7 +81,7 @@ const Navbar: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <a href="https://www.eservicepayments.com/cgi-bin/Vanco_ver3.vps?appver3=wWsk24ZWJSTZKsGd1RMKlg0BDvsSG3VIWQCPJNNxD8upkiY7JlDavDsozUE7KG0nFx2NSo8LdUKGuGuF396vbZewsOHnV4Ld_dQesVjewg2XHubq5Z7ap5JVmPErc4ZeYHCKCZhESjGNQmZ5B-6dx-cgLWI1PcgQ7f1aayiwnU0=&ver=3" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition-colors">GIVE</a>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=7ZBSYHUWS6GKL" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition-colors font-semibold">GIVE</a>
                     <Link to="/live">
                         <button className="bg-brand-red px-6 py-2 rounded text-white font-bold hover:bg-red-700 transition-colors">
                             LIVE
@@ -204,7 +206,7 @@ const Navbar: React.FC = () => {
                         </div>
 
                         <div className="w-16 h-px bg-white/20 my-2"></div>
-                        <a href="https://www.eservicepayments.com/cgi-bin/Vanco_ver3.vps?appver3=wWsk24ZWJSTZKsGd1RMKlg0BDvsSG3VIWQCPJNNxD8upkiY7JlDavDsozUE7KG0nFx2NSo8LdUKGuGuF396vbZewsOHnV4Ld_dQesVjewg2XHubq5Z7ap5JVmPErc4ZeYHCKCZhESjGNQmZ5B-6dx-cgLWI1PcgQ7f1aayiwnU0=&ver=3" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-brand-red" onClick={() => setIsOpen(false)}>GIVE</a>
+                        <a href="https://www.paypal.com/donate/?hosted_button_id=7ZBSYHUWS6GKL" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-brand-red" onClick={() => setIsOpen(false)}>GIVE</a>
                         <Link to="/live" className="w-3/4">
                             <button className="bg-brand-red px-8 py-3 rounded text-white font-bold hover:bg-red-700 transition-colors w-full">
                                 LIVE
@@ -213,6 +215,8 @@ const Navbar: React.FC = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+
         </nav>
     );
 };
