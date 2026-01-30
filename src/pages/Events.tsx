@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion';
 import { calendarConfig } from '../config/calendar';
+import { useState, useEffect } from 'react';
+import { mainEvents as staticEvents } from '../data/mainEvents';
+import type { YouthEvent } from '../data/youthEvents';
+import { fetchFacebookEvents } from '../services/facebook';
 
 const Events = () => {
     const now = new Date();
@@ -8,8 +12,25 @@ const Events = () => {
     const endDate = `${currentYear + 2}0101`; // Two years forward
     const datesParam = `&dates=${startDate}/${endDate}`;
 
+    // State for dynamic events
+    const [events, setEvents] = useState<YouthEvent[]>(staticEvents);
+
+    useEffect(() => {
+        const loadEvents = async () => {
+            // Use VITE_FB_MAIN_PAGE_ID for the main events page
+            const mainPageId = import.meta.env.VITE_FB_MAIN_PAGE_ID;
+            if (mainPageId) {
+                const fbEvents = await fetchFacebookEvents(mainPageId);
+                if (fbEvents && fbEvents.length > 0) {
+                    setEvents(fbEvents);
+                }
+            }
+        };
+        loadEvents();
+    }, []);
+
     // Construct the Google Calendar embed URL
-    const calendarSrc = `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=${encodeURIComponent(calendarConfig.timezone)}&src=${encodeURIComponent(calendarConfig.calendarId)}&color=%230EA5E9${datesParam}&mode=AGENDA`;
+    const calendarSrc = `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=${encodeURIComponent(calendarConfig.timezone)}&src=${encodeURIComponent(calendarConfig.calendarId)}&color=%230EA5E9${datesParam}&mode=MONTH`;
 
     return (
         <div className="bg-[#c7c7c7] min-h-screen text-brand-black pt-20">
@@ -42,9 +63,58 @@ const Events = () => {
                 </div>
             </section>
 
+            {/* Featured Events Section */}
+            <section className="py-20 bg-gray-100">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4">FEATURED EVENTS</h2>
+                        <div className="h-1 w-20 bg-brand-red mx-auto"></div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {events.map((event) => (
+                            <motion.div
+                                key={event.id}
+                                whileHover={{ y: -10 }}
+                                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
+                            >
+                                <div className="h-48 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 bg-brand-red text-white px-4 py-1 font-bold z-10 rounded-bl-lg">
+                                        {event.date}
+                                    </div>
+                                    <img
+                                        src={event.image}
+                                        alt={event.title}
+                                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                                    />
+                                </div>
+
+                                <div className="p-6 flex flex-col flex-grow">
+                                    <h3 className="text-2xl font-bold text-brand-black mb-2 leading-tight">{event.title}</h3>
+                                    <p className="text-gray-600 mb-6 flex-grow">{event.description}</p>
+
+                                    <a
+                                        href={event.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-block w-full py-3 bg-brand-black text-white text-center font-bold rounded-lg hover:bg-brand-red transition-colors uppercase tracking-wider"
+                                    >
+                                        {event.buttonText || 'MORE DETAILS'}
+                                    </a>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Calendar Section */}
             <section className="py-20">
                 <div className="container mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4">CALENDAR</h2>
+                        <div className="h-1 w-20 bg-brand-red mx-auto"></div>
+                    </div>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

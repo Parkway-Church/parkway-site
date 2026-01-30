@@ -75,8 +75,8 @@ const Footer: React.FC = () => {
                     <ul className="space-y-3 text-sm text-gray-400">
                         <li><a href="#" className="hover:text-white transition-colors">Parkway Online</a></li>
                         <li><a href="#" className="hover:text-white transition-colors">Life Groups</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Journey Land</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Journey Kids</a></li>
+                        <li><Link to="/journeyland" className="hover:text-white transition-colors">Journey Land</Link></li>
+                        <li><Link to="/kids" className="hover:text-white transition-colors">Journey Kids</Link></li>
                         <li><Link to="/youth" className="hover:text-white transition-colors">The Park Youth</Link></li>
                         <li><a href="#" className="hover:text-white transition-colors">Events</a></li>
                     </ul>

@@ -11,6 +11,8 @@ import Videos from './pages/Videos';
 import Gallery from './pages/Gallery';
 import Volunteers from './pages/Volunteers';
 import ParkYouth from './pages/ParkYouth';
+import JourneyLand from './pages/JourneyLand';
+import JourneyKids from './pages/JourneyKids';
 import Events from './pages/Events';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/volunteers" element={<Volunteers />} />
         <Route path="/youth" element={<ParkYouth />} />
+        <Route path="/kids" element={<JourneyKids />} />
+        <Route path="/journeyland" element={<JourneyLand />} />
         <Route path="/events" element={<Events />} />
       </Routes>
       <Footer />
