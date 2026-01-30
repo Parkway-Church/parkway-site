@@ -10,6 +10,7 @@ import Sermons from './pages/Sermons';
 import Videos from './pages/Videos';
 import Gallery from './pages/Gallery';
 import Volunteers from './pages/Volunteers';
+import LifeGroups from './pages/LifeGroups';
 import ParkYouth from './pages/ParkYouth';
 import JourneyLand from './pages/JourneyLand';
 import JourneyKids from './pages/JourneyKids';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/videos" element={<Videos />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/volunteers" element={<Volunteers />} />
+        <Route path="/groups" element={<LifeGroups />} />
         <Route path="/youth" element={<ParkYouth />} />
         <Route path="/kids" element={<JourneyKids />} />
         <Route path="/journeyland" element={<JourneyLand />} />
