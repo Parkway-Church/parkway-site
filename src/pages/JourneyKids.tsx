@@ -73,7 +73,7 @@ const JourneyKids: React.FC = () => {
                     >
                         <h2 className="font-marker text-5xl md:text-6xl text-brand-red mb-6">WELCOME!</h2>
                         <p className="text-xl text-gray-600 leading-relaxed mb-6 font-medium">
-                            We have the privilege of investing in the next generation. From holding babies to teaching elementary lessons, our Kids Team helps children learn about Jesus in a safe and fun environment.
+                            Welcome to Parkway Kids, where faith is fun, creativity is encouraged, and a little mess means learning is happening. In a safe and joyful environment, children explore God’s love through hands-on activities, music, and stories.
                         </p>
                         <button className="bg-yellow-400 text-brand-black font-bold py-3 px-8 rounded-full shadow-[0_4px_0_rgb(202,138,4)] hover:shadow-[0_2px_0_rgb(202,138,4)] hover:translate-y-[2px] transition-all text-lg uppercase tracking-wide">
                             Plan A Visit
@@ -105,7 +105,8 @@ const JourneyKids: React.FC = () => {
                                 High-energy worship, interactive lessons, and small groups designed to help kids grow in faith.
                             </p>
                             <div className="bg-blue-50 rounded-2xl p-6 text-blue-800 font-bold border-2 border-blue-200 border-dashed">
-                                <p>SUNDAYS @ 8:30, 10, 11:30 AM + 1 PM</p>
+                                <p>SUNDAYS @ 10:30 AM
+                                </p>
                             </div>
                         </motion.div>
 
@@ -132,7 +133,7 @@ const JourneyKids: React.FC = () => {
                                 </p>
 
                                 <div className="bg-zinc-900/80 rounded-2xl p-6 text-neon-green font-graffiti border-2 border-neon-green border-dashed backdrop-blur-sm group-hover:bg-zinc-800 transition-colors">
-                                    <p className="mb-2">WEDNESDAYS & SUNDAYS</p>
+                                    <p className="mb-2">SUNDAYS @ 11:30 AM</p>
                                     <div className="flex items-center gap-2 text-white font-sans text-sm font-bold uppercase tracking-wider">
                                         Enter The Park <span>→</span>
                                     </div>

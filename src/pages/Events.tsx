@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { calendarConfig } from '../config/calendar';
-import { useState, useEffect } from 'react';
 import { mainEvents as staticEvents } from '../data/mainEvents';
-import type { YouthEvent } from '../data/youthEvents';
-import { fetchFacebookEvents } from '../services/facebook';
+
 
 const Events = () => {
     const now = new Date();
@@ -12,22 +10,8 @@ const Events = () => {
     const endDate = `${currentYear + 2}0101`; // Two years forward
     const datesParam = `&dates=${startDate}/${endDate}`;
 
-    // State for dynamic events
-    const [events, setEvents] = useState<YouthEvent[]>(staticEvents);
-
-    useEffect(() => {
-        const loadEvents = async () => {
-            // Use VITE_FB_MAIN_PAGE_ID for the main events page
-            const mainPageId = import.meta.env.VITE_FB_MAIN_PAGE_ID;
-            if (mainPageId) {
-                const fbEvents = await fetchFacebookEvents(mainPageId);
-                if (fbEvents && fbEvents.length > 0) {
-                    setEvents(fbEvents);
-                }
-            }
-        };
-        loadEvents();
-    }, []);
+    // Use static events directly
+    const events = staticEvents;
 
     // Construct the Google Calendar embed URL
     const calendarSrc = `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=${encodeURIComponent(calendarConfig.timezone)}&src=${encodeURIComponent(calendarConfig.calendarId)}&color=%230EA5E9${datesParam}&mode=MONTH`;

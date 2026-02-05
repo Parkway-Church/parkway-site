@@ -9,7 +9,7 @@ const ServiceTimes: React.FC = () => {
                 </h2>
                 <div className="h-1 w-20 bg-brand-red mx-auto mb-6"></div>
                 <h3 className="text-lg md:text-xl font-semibold mb-2">
-                    LA MERIENDA TUESDAYS AT 7:00 PM
+                    LA MERIENDA GRUPO DE VIDA EN ESPAÑOL LOS MARTES A LAS 7:00 PM
                 </h3>
                 <h3 className="text-lg md:text-xl font-semibold mb-2">
                     LOVE IS THE WAY LIFE GROUP THURSDAYS AT 7:00 PM

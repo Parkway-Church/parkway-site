@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NextGen: React.FC = () => {
     return (
@@ -26,9 +27,9 @@ const NextGen: React.FC = () => {
                             Preschool only every Thursdays at 6:30 PM<br />
                             Preschool to Elementary every Sunday at 8:30, 10, 11:30 AM + 1 PM
                         </p>
-                        <button className="bg-brand-black text-white px-6 py-2 uppercase font-bold text-sm tracking-wider hover:bg-gray-800 transition-colors">
+                        <Link to="/kids" className="bg-brand-black text-white px-6 py-2 uppercase font-bold text-sm tracking-wider hover:bg-gray-800 transition-colors inline-block">
                             Find Out More
-                        </button>
+                        </Link>
                     </div>
 
                     {/* The Park Youth */}
@@ -47,9 +48,9 @@ const NextGen: React.FC = () => {
                         <p className="text-gray-500 text-sm mb-6 max-w-md">
                             They leave equipped to make a lasting difference in their schools, families, and friendships.
                         </p>
-                        <button className="bg-brand-black text-white px-6 py-2 uppercase font-bold text-sm tracking-wider hover:bg-gray-800 transition-colors">
+                        <Link to="/youth" className="bg-brand-black text-white px-6 py-2 uppercase font-bold text-sm tracking-wider hover:bg-gray-800 transition-colors inline-block">
                             Find Out More
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -75,7 +75,7 @@ const JourneyLand: React.FC = () => {
                             IS GOOD!
                         </h2>
                         <p className="font-sans text-xl text-gray-700 leading-relaxed mb-8">
-                            Journey Land is designed for our creative, energetic, and curious little ones. We believe in learning through doing—whether that's finger painting a Bible story or singing at the top of our lungs!
+                            Big fun. Big faith. Little hands.<br /> Journey Land at Parkway Christian Church is where kids learn about God through movement, creativity, and joy because messy moments often make the best memories.
                         </p>
                         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                             <span className="bg-red-100 text-red-600 px-4 py-2 rounded-full font-bold font-marker text-lg border-2 border-red-200 rotate-2">Crafts</span>
@@ -95,45 +95,52 @@ const JourneyLand: React.FC = () => {
                         {/* Nursery */}
                         <motion.div
                             whileHover={{ scale: 1.05 }}
-                            className="bg-pink-50 p-8 rounded-[3rem] border-4 border-pink-300 text-center relative shadow-[0_10px_20px_rgba(255,192,203,0.3)]"
+                            className="bg-pink-50 p-8 rounded-[3rem] border-4 border-pink-300 text-center relative shadow-[0_10px_20px_rgba(255,192,203,0.3)] h-full flex flex-col justify-center"
                         >
                             <div className="w-24 h-24 bg-pink-400 rounded-full mx-auto mb-6 flex items-center justify-center border-4 border-white shadow-md">
                                 <span className="text-3xl">👶</span>
                             </div>
                             <h3 className="font-marker text-3xl text-pink-500 mb-2">NURSERY</h3>
                             <p className="font-bold text-gray-500 mb-4">0 - 2 YEARS</p>
-                            <p className="text-gray-600">Cuddles, lullabies, and God's love for our tiniest treasures.</p>
+                            <p className="text-gray-600">Cuddles, lullabies, and God's love for our tiniest treasures. <br />In Room 1.</p>
                         </motion.div>
 
-                        {/* Toddlers */}
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className="bg-blue-50 p-8 rounded-[3rem] border-4 border-blue-300 text-center relative shadow-[0_10px_20px_rgba(173,216,230,0.3)] transform md:-translate-y-8"
-                        >
-                            <div className="w-24 h-24 bg-blue-400 rounded-full mx-auto mb-6 flex items-center justify-center border-4 border-white shadow-md">
-                                <span className="text-3xl">🎨</span>
-                            </div>
-                            <h3 className="font-marker text-3xl text-blue-500 mb-2">TODDLERS</h3>
-                            <p className="font-bold text-gray-500 mb-4">2 - 3 YEARS</p>
-                            <p className="text-gray-600">First steps in faith with coloring, bubbles, and play.</p>
-                        </motion.div>
+                        {/* Joined Toddlers & Pre-K Group */}
+                        <div className="md:col-span-2 relative p-2 md:p-6 border-4 border-dashed border-gray-300 rounded-[3.5rem] bg-white/50">
+                            {/* Optional Group Label can go here if requested later */}
 
-                        {/* Preschool */}
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className="bg-green-50 p-8 rounded-[3rem] border-4 border-green-300 text-center relative shadow-[0_10px_20px_rgba(144,238,144,0.3)]"
-                        >
-                            <div className="w-24 h-24 bg-green-400 rounded-full mx-auto mb-6 flex items-center justify-center border-4 border-white shadow-md">
-                                <span className="text-3xl">🚀</span>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {/* Toddlers */}
+                                <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    className="bg-blue-50 p-8 rounded-[3rem] border-4 border-blue-300 text-center relative shadow-[0_10px_20px_rgba(173,216,230,0.3)]"
+                                >
+                                    <div className="w-24 h-24 bg-blue-400 rounded-full mx-auto mb-6 flex items-center justify-center border-4 border-white shadow-md">
+                                        <span className="text-3xl">🎨</span>
+                                    </div>
+                                    <h3 className="font-marker text-3xl text-blue-500 mb-2">TODDLERS</h3>
+                                    <p className="font-bold text-gray-500 mb-4">2 - 3 YEARS</p>
+                                    <p className="text-gray-600">First steps in faith with coloring, bubbles, and play.</p>
+                                </motion.div>
+
+                                {/* Preschool */}
+                                <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    className="bg-green-50 p-8 rounded-[3rem] border-4 border-green-300 text-center relative shadow-[0_10px_20px_rgba(144,238,144,0.3)]"
+                                >
+                                    <div className="w-24 h-24 bg-green-400 rounded-full mx-auto mb-6 flex items-center justify-center border-4 border-white shadow-md">
+                                        <span className="text-3xl">🚀</span>
+                                    </div>
+                                    <h3 className="font-marker text-3xl text-green-500 mb-2">PRE-K</h3>
+                                    <p className="font-bold text-gray-500 mb-4">4 - 5 YEARS</p>
+                                    <p className="text-gray-600">Getting ready for big school with big Bible stories!</p>
+                                </motion.div>
                             </div>
-                            <h3 className="font-marker text-3xl text-green-500 mb-2">PRE-K</h3>
-                            <p className="font-bold text-gray-500 mb-4">4 - 5 YEARS</p>
-                            <p className="text-gray-600">Getting ready for big school with big Bible stories!</p>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 

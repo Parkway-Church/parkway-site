@@ -16,8 +16,8 @@ export const videoPlaylists: Playlist[] = [
         description: 'A collection of our favorite worship moments.'
     },
     {
-        id: 'PLNHewxce_fZd_789xyz_placeholder2', // Placeholder
-        title: 'Guest Speakers',
-        description: 'Messages from our special guest speakers.'
+        id: 'PLNHewxce_fZfJ3nmQN_uNM2ZIz7TRvUKH', // Placeholder
+        title: 'Monthly Messages',
+        description: 'Monthly messages from our Pastor.'
     }
 ];

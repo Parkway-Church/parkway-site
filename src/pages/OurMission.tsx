@@ -89,7 +89,7 @@ const OurMission = () => {
                     <motion.div {...fadeIn}>
                         <h2 className="text-xl md:text-2xl font-bold text-gray-600 tracking-widest uppercase mb-8">Why We Exist</h2>
                         <p className="text-3xl md:text-5xl font-bold leading-tight">
-                            "To walk with <span className="text-brand-red">people</span> through real life and point them to the <span className="text-brand-red">HOPE</span> <br />found in <span className="text-brand-red">Jesus</span>."
+                            "To walk with <span className="text-brand-red">people</span> through real life and point them to the <span className="text-brand-red">HOPE</span> <br />found in <span className="text-brand-red">JESUS</span>."
                         </p>
                     </motion.div>
                 </div>
