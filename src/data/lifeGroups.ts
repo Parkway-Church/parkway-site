@@ -11,20 +11,20 @@ export interface LifeGroup {
 export const lifeGroupsData: LifeGroup[] = [
     {
         id: '1',
-        name: "Young Adults",
-        day: "Tuesdays",
+        name: "La Merienda",
+        day: "Martes",
         time: "7:00 PM",
-        location: "The Coffee Shop",
-        bio: "A community of young adults (18-30ish) navigating life, faith, and adulthood together. We dive deep into scripture, share honest conversations, and support each other through the ups and downs of life.",
+        location: "Parkway Christian Church",
+        bio: "La Merienda es un grupo de personas imperfectas que se reúnen semanalmente para dialogar de la palabra de Dios, tener conversaciones sobre las realidades de la vida, y oramos los unos por los otros y nunca falta una taza de café en la mano. Estas invitado a compartir con nosotros, te esperamos.",
         imageUrl: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
         id: '2',
-        name: "Men's Breakfast",
-        day: "Saturdays",
-        time: "8:00 AM",
-        location: "Church Fellowship Hall",
-        bio: "Start your weekend with bacon, coffee, and brotherhood. We gather to sharpen one another, discuss biblical manhood, and pray for our families and community. Open to men of all ages.",
+        name: "Love Is The Way",
+        day: "Thursday",
+        time: "6:30 PM",
+        location: "Parkway Christian Church Room 3",
+        bio: "Our Love Is The Way Life Group is a place where we learn to love the way Jesus loved. We are challenged by the word to think outside of our comfort zone and grow together.",
         imageUrl: "https://images.unsplash.com/photo-1542596594-649edbc13630?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
