@@ -15,6 +15,7 @@ import ParkYouth from './pages/ParkYouth';
 import JourneyLand from './pages/JourneyLand';
 import JourneyKids from './pages/JourneyKids';
 import Events from './pages/Events';
+import ParkwayOnline from './pages/ParkwayOnline';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/online" element={<ParkwayOnline />} />
         <Route path="/live" element={<Live />} />
         <Route path="/mission" element={<OurMission />} />
         <Route path="/leadership" element={<Leadership />} />

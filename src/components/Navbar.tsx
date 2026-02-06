@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
                         </a>
                         <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform -translate-y-2 group-hover:translate-y-0">
                             <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md">
-                                <a href="#" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Parkway Online</a>
+                                <Link to="/online" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Parkway Online</Link>
                                 <Link to="/groups" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Life Groups</Link>
                                 <Link to="/journeyland" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Land</Link>
                                 <Link to="/kids" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Kids</Link>
@@ -160,7 +160,7 @@ const Navbar: React.FC = () => {
                                             exit={{ height: 0, opacity: 0 }}
                                             className="overflow-hidden flex flex-col items-center space-y-3"
                                         >
-                                            <a href="#" className="text-base text-gray-300 hover:text-brand-white pt-2" onClick={() => setIsOpen(false)}>Parkway Online</a>
+                                            <Link to="/online" className="text-base text-gray-300 hover:text-brand-white pt-2" onClick={() => setIsOpen(false)}>Parkway Online</Link>
                                             <Link to="/groups" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Life Groups</Link>
                                             <Link to="/journeyland" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Journey Land</Link>
                                             <Link to="/kids" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Journey Kids</Link>
