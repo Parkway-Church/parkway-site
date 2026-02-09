@@ -18,7 +18,7 @@ export const leadershipData: Leader[] = [
     },
     {
         id: '2',
-        name: "Nathan Hernandez",
+        name: "Nathan Jasso",
         role: "Worship Director",
         bio: "Nathan joined our family as Parkway's Worship Director in June, 2011.  He came to Parkway after having served as the Music Director at Tampa's First Reformed Church.  There he created and grew their Contemporary Worship service until it rivaled the traditional service in attendance.  Nathan is a graduate of the University of South Florida where he earned a Bachelor of Arts Degree in Music. At USF, Nathan participated in the University Singers, USF Opera Theater and the USF Chamber Singers.  In addition to serving Parkway, Nathan works in the Broward County Public Schools as an elementary general music teacher. He is an instructor of voice and guitar as well. With his extensive experience Nathan says his goal is to instill a love of Jesus through music and to provide music ministries to encourage the development of growing relationships with one another through Christ. Nathan is married to Natalie and they have 2 young daughters.",
         imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
