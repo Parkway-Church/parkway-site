@@ -7,8 +7,12 @@ const Hero: React.FC = () => {
         '/images/home_banner/autumn-2026-01-06-09-12-57-utc (1).jpg',
         '/images/home_banner/city-street-at-night-with-bokeh-lights-2026-01-08-02-41-38-utc (1).jpg',
         '/images/home_banner/dark-alley-city-boulevard-surrounded-by-trees-2026-01-05-22-40-46-utc (1).jpg',
+        '/images/home_banner/group-of-school-friends-outdoors-lifestyle-2026-01-07-23-36-20-utc.webp',
         '/images/home_banner/road-into-the-distance-2026-01-07-00-28-14-utc (1).jpg',
-        '/images/home_banner/road-into-the-distance-2026-01-09-11-46-17-utc (1).jpg'
+        '/images/home_banner/road-into-the-distance-2026-01-09-11-46-17-utc (1).jpg',
+        '/images/home_banner/shadow-of-friends-on-surrounding-wall-at-universit-2026-01-05-05-10-17-utc.webp',
+        '/images/home_banner/silhouettes-of-people-walking-on-city-street-2026-01-06-09-53-36-utc.webp',
+        '/images/home_banner/the-shadow-of-a-happy-family-holding-hands-in-the-2026-01-11-10-42-41-utc.webp'
     ];
 
     // Select random image once on mount

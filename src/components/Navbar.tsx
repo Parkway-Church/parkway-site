@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import GiveModal from './GiveModal';
 
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isGiveModalOpen, setIsGiveModalOpen] = useState(false);
 
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -81,7 +83,7 @@ const Navbar: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <a href="https://www.paypal.com/donate/?hosted_button_id=7ZBSYHUWS6GKL" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition-colors font-semibold">GIVE</a>
+                    <button onClick={() => setIsGiveModalOpen(true)} className="hover:text-brand-red transition-colors font-semibold uppercase">GIVE</button>
                     <Link to="/live">
                         <button className="bg-brand-red px-6 py-2 rounded text-white font-bold hover:bg-red-700 transition-colors">
                             LIVE
@@ -206,7 +208,15 @@ const Navbar: React.FC = () => {
                         </div>
 
                         <div className="w-16 h-px bg-white/20 my-2"></div>
-                        <a href="https://www.paypal.com/donate/?hosted_button_id=7ZBSYHUWS6GKL" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-brand-red" onClick={() => setIsOpen(false)}>GIVE</a>
+                        <button
+                            onClick={() => {
+                                setIsOpen(false);
+                                setIsGiveModalOpen(true);
+                            }}
+                            className="text-lg font-semibold hover:text-brand-red uppercase"
+                        >
+                            GIVE
+                        </button>
                         <Link to="/live" className="w-3/4">
                             <button className="bg-brand-red px-8 py-3 rounded text-white font-bold hover:bg-red-700 transition-colors w-full">
                                 LIVE
@@ -216,7 +226,7 @@ const Navbar: React.FC = () => {
                 )}
             </AnimatePresence>
 
-
+            <GiveModal isOpen={isGiveModalOpen} onClose={() => setIsGiveModalOpen(false)} />
         </nav>
     );
 };
