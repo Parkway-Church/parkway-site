@@ -17,7 +17,7 @@ const OurMission = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentQuoteIndex((prev) => (prev + 1) % missionQuotes.length);
-        }, 5000);
+        }, 15000);
         return () => clearInterval(interval);
     }, []);
 
@@ -194,7 +194,7 @@ const OurMission = () => {
                                     transition={{ duration: 0.5 }}
                                     className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
                                 >
-                                    <p className="text-white/90 text-xl italic font-serif max-w-2xl mx-auto">
+                                    <p className="text-white/90 text-2xl md:text-3xl italic font-serif max-w-2xl mx-auto">
                                         "{missionQuotes[currentQuoteIndex].text}"
                                     </p>
                                     <p className="text-white/70 font-bold mt-2 text-sm uppercase tracking-widest">
