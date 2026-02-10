@@ -13,6 +13,33 @@ interface GridItemProps {
 }
 
 const GridItem: React.FC<GridItemProps> = ({ title, description, linkText, link, image, delay }) => {
+    const isExternal = link.startsWith('http');
+
+    const Content = () => (
+        <>
+            <div className="overflow-hidden rounded-lg mb-4 relative h-64 md:h-56 lg:h-64 cursor-pointer">
+                <img
+                    src={image}
+                    alt={title}
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:blur-[2px]"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div className="border border-[#38b6ff] px-4 py-2">
+                        <h3 className="text-white text-lg font-bold uppercase tracking-widest">{title}</h3>
+                    </div>
+                </div>
+            </div>
+            <h3 className="text-xl font-bold uppercase tracking-wider mb-2">{title}</h3>
+            <p className="text-gray-600 mb-4 text-sm flex-grow leading-relaxed">{description}</p>
+            <div className="flex items-center text-brand-red font-bold text-sm tracking-wide group-hover:underline">
+                {linkText} <ArrowRight size={16} className="ml-1" />
+            </div>
+        </>
+    );
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -20,28 +47,15 @@ const GridItem: React.FC<GridItemProps> = ({ title, description, linkText, link,
             transition={{ duration: 0.5, delay }}
             className="flex flex-col group"
         >
-            <Link to={link} className="block">
-                <div className="overflow-hidden rounded-lg mb-4 relative h-64 md:h-56 lg:h-64 cursor-pointer">
-                    <img
-                        src={image}
-                        alt={title}
-                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:blur-[2px]"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
-
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                        <div className="border border-[#38b6ff] px-4 py-2">
-                            <h3 className="text-white text-lg font-bold uppercase tracking-widest">{title}</h3>
-                        </div>
-                    </div>
-                </div>
-            </Link>
-            <h3 className="text-xl font-bold uppercase tracking-wider mb-2">{title}</h3>
-            <p className="text-gray-600 mb-4 text-sm flex-grow leading-relaxed">{description}</p>
-            <Link to={link} className="flex items-center text-brand-red font-bold text-sm tracking-wide group-hover:underline">
-                {linkText} <ArrowRight size={16} className="ml-1" />
-            </Link>
+            {isExternal ? (
+                <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full flex flex-col">
+                    <Content />
+                </a>
+            ) : (
+                <Link to={link} className="block h-full flex flex-col">
+                    <Content />
+                </Link>
+            )}
         </motion.div>
     );
 };
@@ -66,7 +80,7 @@ const GridSection: React.FC = () => {
             title: 'Prayer',
             description: 'Prayer is our first response, not our last resort. Let us know how we can pray for you today.',
             linkText: 'How Can We Pray For You?',
-            link: '#', // No clear route for prayer request yet
+            link: 'https://forms.gle/d2k4oygSyKu4bwHq8',
             image: 'https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
         },
         {
