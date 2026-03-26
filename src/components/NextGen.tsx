@@ -14,7 +14,7 @@ const NextGen: React.FC = () => {
                     <div className="flex flex-col items-center text-center">
                         <div className="w-full h-80 overflow-hidden mb-6 relative group">
                             <img
-                                src="https://images.unsplash.com/photo-1502086223501-68196195861b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                src="/images/kids-fun-with-paint.png"
                                 alt="Journey Kids"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
@@ -24,8 +24,7 @@ const NextGen: React.FC = () => {
                             Journey Kids is a safe and engaging space for your children to connect with Jesus.
                         </p>
                         <p className="text-gray-500 text-sm mb-6 max-w-md">
-                            Preschool only every Thursdays at 6:30 PM<br />
-                            Preschool to Elementary every Sunday at 8:30, 10, 11:30 AM + 1 PM
+                            Each Sunday at 10:15 am our preschool and elementary students are joyfully dismissed to their Sunday school classes while parents stay in service for the message.
                         </p>
                         <Link to="/kids" className="bg-brand-black text-white px-6 py-2 uppercase font-bold text-sm tracking-wider hover:bg-gray-800 transition-colors inline-block">
                             Find Out More
