@@ -21,14 +21,14 @@ export const leadershipData: Leader[] = [
         name: "Nathan Jasso",
         role: "Worship Director",
         bio: "Nathan joined our family as Parkway's Worship Director in June, 2011.  He came to Parkway after having served as the Music Director at Tampa's First Reformed Church.  There he created and grew their Contemporary Worship service until it rivaled the traditional service in attendance.  Nathan is a graduate of the University of South Florida where he earned a Bachelor of Arts Degree in Music. At USF, Nathan participated in the University Singers, USF Opera Theater and the USF Chamber Singers.  In addition to serving Parkway, Nathan works in the Broward County Public Schools as an elementary general music teacher. He is an instructor of voice and guitar as well. With his extensive experience Nathan says his goal is to instill a love of Jesus through music and to provide music ministries to encourage the development of growing relationships with one another through Christ. Nathan is married to Natalie and they have 2 young daughters.",
-        imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        imageUrl: "/images/leadership/Nathan.jpg"
     },
     {
         id: '3',
         name: "Christian Torres",
         role: "Youth Group Leader & Assistant Worship Leader",
         bio: "Christian Hernandez is passionate about equipping students with the necessary tools to live a life dedicated to Jesus. Christian loves helping students grow in their relationship with Christ and to see them share that with others. Christian is currently working to finish his Bachelor’s in Psychology. He has experience working in other youth ministries and youth programs, which have led him to commit to God’s calling for him to work with students. 1 Timothy 4:12",
-        imageUrl: "/images/leadership/TorresChristian_HEIC.avif"
+        imageUrl: "/images/leadership/Christian.jpg"
     },
     {
         id: '4',
@@ -43,5 +43,12 @@ export const leadershipData: Leader[] = [
         role: "Custodian",
         bio: "I was born and raised in Mexico, where I worked at a local church, not as a member but simply because I enjoyed the work and the people I met there. In 1997, I moved to California, seeking new opportunities and a fresh start. During that time, my life took a significant turn when my husband helped me escape a difficult situation, rescuing me from an abusive relationship and giving me a chance to begin anew. After relocating, my husband’s uncle invited me to move to Florida, where I embraced new opportunities and a supportive community. Through various jobs and experiences, I eventually found my way to Parkway Christian Church, where I currently work. Although I was initially skeptical about attending church, my perspective changed when a neighbor invited me to visit their church. That simple invitation transformed my life, leading me on a journey of faith that has profoundly shaped who I am today.I am now passionate about growing in my relationship with God, knowing that He has a purpose and plan for my life. Being at the church has allowed me to develop spiritually and discover the joy of serving others. I’m also a proud mother of one daughter and a grandmother to two wonderful grandchildren who still live in Mexico. Outside of my work at the church, I dedicate my time to caring for the elderly, finding fulfillment in supporting and uplifting those around me.",
         imageUrl: "/images/leadership/Matilde.jpg"
+    },
+    {
+        id: '6',
+        name: "Ivan Villota",
+        role: "Sound Engineer",
+        bio: "Ivan Villota joined the Parkway team as our sound tech in May 2024 and has been a wonderful addition to the Parkway family. He brings a growing knowledge of audio equipment and sound systems, along with a strong attention to detail and a heart to serve. Ivan works faithfully behind the scenes to ensure that each service flows smoothly, helping create an environment where people can clearly hear the message and fully engage in worship. Whether working independently or alongside the team, he approaches every opportunity with excellence, reliability, and a genuine desire to honor God through what he does.",
+        imageUrl: "/images/leadership/Ivan.jpg"
     }
 ];
