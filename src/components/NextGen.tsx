@@ -35,14 +35,14 @@ const NextGen: React.FC = () => {
                     <div className="flex flex-col items-center text-center">
                         <div className="w-full h-80 overflow-hidden mb-6 relative group">
                             <img
-                                src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                src="/images/park_youth/sticker_bomb_bg.png"
                                 alt="The Park Youth"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
                         <h3 className="text-2xl font-bold uppercase mb-4">The Park Youth</h3>
                         <p className="text-gray-600 mb-2 max-w-md">
-                            The Park Youth meet every Tuesday at 7 PM to worship, learn, and impact their community for Jesus.
+                            The Park Youth meet every Sunday at 11:30 AM to worship, learn, and impact their community for Jesus.
                         </p>
                         <p className="text-gray-500 text-sm mb-6 max-w-md">
                             They leave equipped to make a lasting difference in their schools, families, and friendships.

@@ -93,11 +93,11 @@ const ParkYouth: React.FC = () => {
                     <div className="space-y-8">
                         <div className="bg-black border-2 border-neon-green p-6 rounded-3xl transform rotate-1 shadow-[0_0_20px_#39FF14]">
                             <h3 className="font-graffiti text-3xl text-neon-green mb-2">MIDDLE SCHOOL</h3>
-                            <p className="font-sans text-gray-300">Wednesdays @ 6:30PM. Chaos + Truth.</p>
+                            <p className="font-sans text-gray-300">Sundays @ 11:30 AM. Chaos + Truth.</p>
                         </div>
                         <div className="bg-black border-2 border-neon-yellow p-6 rounded-3xl transform -rotate-1 shadow-[0_0_20px_#FAFF00]">
                             <h3 className="font-graffiti text-3xl text-neon-yellow mb-2">HIGH SCHOOL</h3>
-                            <p className="font-sans text-gray-300">Sundays @ 6:00PM. Real talk + Deep Dive.</p>
+                            <p className="font-sans text-gray-300">Sundays @ 11:30 AM. Real talk + Deep Dive.</p>
                         </div>
                     </div>
                 </div>
