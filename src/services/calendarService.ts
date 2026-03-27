@@ -1,5 +1,6 @@
 import { calendarConfig } from '../config/calendar';
 import { generateGoogleCalendarLink } from '../utils/calendarUtils';
+import { getEventImage } from '../config/eventImages';
 
 // Represents the event schema expected by the UI
 export interface CalendarEvent {
@@ -11,8 +12,6 @@ export interface CalendarEvent {
     link: string; // The "Add to Calendar" link
     buttonText: string;
 }
-
-const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
 
 /**
  * Fetches the upcoming events from the configured Google Calendar.
@@ -66,12 +65,11 @@ export const fetchUpcomingEvents = async (maxResults: number = 3): Promise<Calen
             }
 
             // Extract the first image from the HTML description, if it exists
-            let imageUrl = DEFAULT_IMAGE;
             const descriptionHtml = event.description || '';
             const imgMatch = descriptionHtml.match(/<img[^>]+src="([^">]+)"/);
-            if (imgMatch && imgMatch[1]) {
-                imageUrl = imgMatch[1];
-            }
+            const htmlImageUrl = (imgMatch && imgMatch[1]) ? imgMatch[1] : null;
+
+            const imageUrl = getEventImage(event.summary, htmlImageUrl);
 
             const cleanDescription = descriptionHtml.replace(/<[^>]*>?/gm, '').trim();
             const truncatedDesc = cleanDescription.length > 150 
