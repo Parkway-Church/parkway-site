@@ -5,6 +5,8 @@ import mensImg from '../assets/event_images/mens.webp';
 import womensImg from '../assets/event_images/womens.webp';
 import bibleImg from '../assets/event_images/bible.avif';
 import serviceImg from '../assets/event_images/service.webp';
+import lifegroupImg from '../assets/event_images/lifegroup.webp';
+import grupoImg from '../assets/event_images/grupo.webp';
 
 export const keywordImageMap: Record<string, string[]> = {
     worship: [worshipImg],
@@ -14,10 +16,12 @@ export const keywordImageMap: Record<string, string[]> = {
     women: [womensImg],
     prayer: [bibleImg],
     bible: [bibleImg],
-    service: [serviceImg]
+    service: [serviceImg],
+    lifegroup: [lifegroupImg],
+    grupo: [grupoImg]
 };
 
-export const defaultEventImage = worshipImg;
+export const defaultEventImage = serviceImg;
 
 /**
  * Determines the best image to display based on explicit calendar attachments or title keywords.
