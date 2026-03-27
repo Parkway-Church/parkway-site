@@ -9,9 +9,9 @@ export interface VolunteerRole {
 export const volunteersData: VolunteerRole[] = [
     {
         id: '1',
-        name: "Welcome Team",
-        role: "Guest Services",
-        bio: "The Welcome Team is the first face people see at Parkway. We love to make everyone feel at home, from the parking lot to the sanctuary doors. Join us in creating a warm and inviting atmosphere.",
+        name: "Hospitality",
+        role: "Holy Grounds Cafe",
+        bio: "The Holy Grounds Cafe hospitality team creates a space for fellowship after each worship service. Through food, conversation & care, we help our church family connect & build community.",
         imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
