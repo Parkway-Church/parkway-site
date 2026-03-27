@@ -1,31 +1,22 @@
+import worshipImg from '../assets/event_images/worship.avif';
+import youthImg from '../assets/event_images/youth.webp';
+import communityImg from '../assets/event_images/hearthands.avif';
+import mensImg from '../assets/event_images/mens.webp';
+import womensImg from '../assets/event_images/womens.webp';
+import bibleImg from '../assets/event_images/bible.avif';
+
 export const keywordImageMap: Record<string, string[]> = {
-    worship: [
-        "/images/event_images/worship.avif"
-    ],
-    youth: [
-        "/images/event_images/youth.webp"
-    ],
-    community: [
-        "/images/event_images/hearthands.avif"
-    ],
-    men: [
-        "/images/event_images/mens.webp"
-    ],
-    women: [
-        "/images/event_images/womens.webp"
-    ],
-    prayer: [
-        "/images/event_images/bible.avif"
-    ],
-    bible: [
-        "/images/event_images/bible.avif"
-    ],
-    service: [
-        "/images/event_images/worship.avif"
-    ]
+    worship: [worshipImg],
+    youth: [youthImg],
+    community: [communityImg],
+    men: [mensImg],
+    women: [womensImg],
+    prayer: [bibleImg],
+    bible: [bibleImg],
+    service: [worshipImg]
 };
 
-export const defaultEventImage = "/images/event_images/worship.avif";
+export const defaultEventImage = worshipImg;
 
 /**
  * Determines the best image to display based on explicit calendar attachments or title keywords.
