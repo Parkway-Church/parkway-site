@@ -45,11 +45,25 @@ export const fetchUpcomingEvents = async (maxResults: number = 3): Promise<Calen
             const startDateTime = event.start.dateTime || event.start.date;
             const endDateTime = event.end?.dateTime || event.end?.date;
             
-            const startDateObj = new Date(startDateTime);
-            const formattedDate = startDateObj.toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric'
-            });
+            let formattedDate = '';
+            
+            if (event.start.date) {
+                // It's an all-day event in 'YYYY-MM-DD' format.
+                // Parsing directly with 'new Date(string)' assumes UTC, shifting it back a day when converting to local time.
+                const [year, month, day] = event.start.date.split('-');
+                const localDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+                formattedDate = localDate.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                }).toUpperCase();
+            } else if (event.start.dateTime) {
+                // It's a timed event with its own timezone offset.
+                const startDateObj = new Date(event.start.dateTime);
+                formattedDate = startDateObj.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                }).toUpperCase();
+            }
 
             // Extract the first image from the HTML description, if it exists
             let imageUrl = DEFAULT_IMAGE;
