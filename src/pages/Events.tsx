@@ -18,7 +18,8 @@ const Events = () => {
     useEffect(() => {
         const loadEvents = async () => {
             try {
-                const fetchedEvents = await fetchUpcomingEvents(3);
+                // We skip 14 days ahead for the featured events page
+                const fetchedEvents = await fetchUpcomingEvents(3, undefined, 14);
                 if (fetchedEvents.length > 0) {
                     setEvents(fetchedEvents);
                 } else {

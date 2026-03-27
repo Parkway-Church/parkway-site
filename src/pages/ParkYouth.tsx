@@ -15,8 +15,8 @@ const ParkYouth: React.FC = () => {
     useEffect(() => {
         const loadEvents = async () => {
             try {
-                // Fetch using the youth calendar ID from config
-                const fetchedEvents = await fetchUpcomingEvents(3, calendarConfig.youthCalendarId);
+                // Fetch using the youth calendar ID from config, skip 14 days ahead
+                const fetchedEvents = await fetchUpcomingEvents(3, calendarConfig.youthCalendarId, 14);
                 if (fetchedEvents && fetchedEvents.length > 0) {
                     setEvents(fetchedEvents);
                 } else {
