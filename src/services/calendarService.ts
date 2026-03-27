@@ -17,7 +17,7 @@ export interface CalendarEvent {
  * Fetches the upcoming events from the configured Google Calendar.
  * Requires `VITE_GOOGLE_CALENDAR_API_KEY` to be set in `.env`.
  */
-export const fetchUpcomingEvents = async (maxResults: number = 3): Promise<CalendarEvent[]> => {
+export const fetchUpcomingEvents = async (maxResults: number = 3, targetCalendarId?: string): Promise<CalendarEvent[]> => {
     const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
     
     if (!apiKey) {
@@ -25,14 +25,14 @@ export const fetchUpcomingEvents = async (maxResults: number = 3): Promise<Calen
         return [];
     }
 
-    const { calendarId } = calendarConfig;
+    const activeCalendarId = targetCalendarId || calendarConfig.calendarId;
     
     // Set timeMin to 14 days from now to skip immediate events
     const futureDate = new Date();
     futureDate.setDate(futureDate.getDate() + 14);
     const timeMin = futureDate.toISOString();
     
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=${maxResults}&singleEvents=true&orderBy=startTime`;
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(activeCalendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=${maxResults}&singleEvents=true&orderBy=startTime`;
 
     try {
         const response = await fetch(url);

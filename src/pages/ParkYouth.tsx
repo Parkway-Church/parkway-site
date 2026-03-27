@@ -1,29 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { youthEvents as staticEvents, type YouthEvent } from '../data/youthEvents';
-import { fetchFacebookEvents } from '../services/facebook';
+import { fetchUpcomingEvents, type CalendarEvent } from '../services/calendarService';
+import { calendarConfig } from '../config/calendar';
 
 const ParkYouth: React.FC = () => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
     // State for dynamic events
-    const [events, setEvents] = useState<YouthEvent[]>(staticEvents);
+    const [events, setEvents] = useState<YouthEvent[] | CalendarEvent[]>(staticEvents);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const loadEvents = async () => {
-            const youthPageId = import.meta.env.VITE_FB_YOUTH_PAGE_ID;
-            const youthAccessToken = import.meta.env.VITE_FB_YOUTH_ACCESS_TOKEN;
-
-            if (youthPageId) {
-                // Pass both page ID and specifically the youth access token (or undefined to let service default, but here we want specific if available)
-                // If youthAccessToken is undefined, the service will fall back to the default token, which is acceptable behavior if not set.
-                const fbEvents = await fetchFacebookEvents(youthPageId, youthAccessToken);
-                if (fbEvents && fbEvents.length > 0) {
-                    setEvents(fbEvents);
+            try {
+                // Fetch using the youth calendar ID from config
+                const fetchedEvents = await fetchUpcomingEvents(3, calendarConfig.youthCalendarId);
+                if (fetchedEvents && fetchedEvents.length > 0) {
+                    setEvents(fetchedEvents);
+                } else {
+                    setEvents(staticEvents.slice(0, 3) as any);
                 }
+            } catch (error) {
+                console.error('Error loading youth events:', error);
+                setEvents(staticEvents.slice(0, 3) as any);
+            } finally {
+                setLoading(false);
             }
-            // If fbEvents is empty (error or no credentials), we keep staticEvents as default
         };
         loadEvents();
     }, []);
@@ -109,35 +113,50 @@ const ParkYouth: React.FC = () => {
                     <h2 className="font-graffiti text-6xl text-center mb-16 text-white drop-shadow-[5px_5px_0px_#0EA5E9]">UPCOMING HYPE</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {events.map((event) => (
-                            <motion.div
-                                key={event.id}
-                                whileHover={{ y: -10 }}
-                                className="bg-zinc-900 border-4 border-white p-2 relative overflow-hidden group flex flex-col h-full"
-                            >
-                                <div className="absolute inset-0 bg-neon-purple/20 group-hover:bg-neon-purple/40 transition-colors pointer-events-none"></div>
-                                <div className="h-48 bg-gray-800 mb-4 flex items-center justify-center overflow-hidden relative">
-                                    <img src={event.image} alt={event.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                                    {event.date && (
-                                        <div className="absolute top-0 right-0 bg-neon-yellow text-black font-bold px-3 py-1 font-mono text-sm transform translate-x-1 -translate-y-1 rotate-3 border-2 border-black">
-                                            {event.date}
-                                        </div>
-                                    )}
+                        {loading ? (
+                            // Loading Skeletons for Youth page
+                            Array.from({ length: 3 }).map((_, index) => (
+                                <div key={index} className="bg-zinc-900 border-4 border-gray-700 p-2 animate-pulse flex flex-col h-[400px]">
+                                    <div className="h-48 bg-gray-800 mb-4 w-full" />
+                                    <div className="p-4 flex flex-col flex-grow">
+                                        <div className="h-8 bg-gray-800 rounded w-3/4 mb-4" />
+                                        <div className="h-4 bg-gray-800 rounded w-full mb-2" />
+                                        <div className="h-4 bg-gray-800 rounded w-5/6 mb-6" />
+                                        <div className="mt-auto h-12 bg-gray-800 rounded w-full" />
+                                    </div>
                                 </div>
-                                <div className="p-4 relative z-10 flex flex-col flex-grow">
-                                    <h3 className="font-marker text-3xl text-neon-yellow mb-2 leading-none">{event.title}</h3>
-                                    <p className="text-gray-300 mb-6 font-sans flex-grow">{event.description}</p>
-                                    <a
-                                        href={event.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-full py-3 bg-neon-pink text-black font-graffiti text-xl hover:bg-white transition-colors text-center inline-block"
-                                    >
-                                        {event.buttonText || 'REGISTER NOW'}
-                                    </a>
-                                </div>
-                            </motion.div>
-                        ))}
+                            ))
+                        ) : (
+                            events.map((event) => (
+                                <motion.div
+                                    key={event.id}
+                                    whileHover={{ y: -10 }}
+                                    className="bg-zinc-900 border-4 border-white p-2 relative overflow-hidden group flex flex-col h-full"
+                                >
+                                    <div className="absolute inset-0 bg-neon-purple/20 group-hover:bg-neon-purple/40 transition-colors pointer-events-none"></div>
+                                    <div className="h-48 bg-gray-800 mb-4 flex items-center justify-center overflow-hidden relative">
+                                        <img src={event.image} alt={event.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                                        {event.date && (
+                                            <div className="absolute top-0 right-0 bg-neon-yellow text-black font-bold px-3 py-1 font-mono text-sm transform translate-x-1 -translate-y-1 rotate-3 border-2 border-black">
+                                                {event.date}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="p-4 relative z-10 flex flex-col flex-grow">
+                                        <h3 className="font-marker text-3xl text-neon-yellow mb-2 leading-none">{event.title}</h3>
+                                        <p className="text-gray-300 mb-6 font-sans flex-grow">{event.description}</p>
+                                        <a
+                                            href={event.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full py-3 bg-neon-pink text-black font-graffiti text-xl hover:bg-white transition-colors text-center inline-block"
+                                        >
+                                            {event.buttonText || 'REGISTER NOW'}
+                                        </a>
+                                    </div>
+                                </motion.div>
+                            ))
+                        )}
                     </div>
                 </div>
             </section>
