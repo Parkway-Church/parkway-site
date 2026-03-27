@@ -6,7 +6,7 @@ import womensImg from '../assets/event_images/womens.webp';
 import bibleImg from '../assets/event_images/bible.avif';
 import serviceImg from '../assets/event_images/service.webp';
 import lifegroupImg from '../assets/event_images/lifegroup.webp';
-import grupoImg from '../assets/event_images/grupo.webp';
+import grupoImg from '../assets/event_images/groupo.webp';
 
 export const keywordImageMap: Record<string, string[]> = {
     worship: [worshipImg],

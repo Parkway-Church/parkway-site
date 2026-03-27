@@ -26,7 +26,11 @@ export const fetchUpcomingEvents = async (maxResults: number = 3): Promise<Calen
     }
 
     const { calendarId } = calendarConfig;
-    const timeMin = new Date().toISOString();
+    
+    // Set timeMin to 14 days from now to skip immediate events
+    const futureDate = new Date();
+    futureDate.setDate(futureDate.getDate() + 14);
+    const timeMin = futureDate.toISOString();
     
     const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=${maxResults}&singleEvents=true&orderBy=startTime`;
 
