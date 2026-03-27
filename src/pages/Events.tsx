@@ -1,7 +1,9 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { calendarConfig } from '../config/calendar';
 import { mainEvents as staticEvents } from '../data/mainEvents';
-
+import { fetchUpcomingEvents } from '../services/calendarService';
+import type { CalendarEvent } from '../services/calendarService';
 
 const Events = () => {
     const now = new Date();
@@ -10,8 +12,28 @@ const Events = () => {
     const endDate = `${currentYear + 2}0101`; // Two years forward
     const datesParam = `&dates=${startDate}/${endDate}`;
 
-    // Use static events directly
-    const events = staticEvents;
+    const [events, setEvents] = useState<CalendarEvent[] | any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadEvents = async () => {
+            try {
+                const fetchedEvents = await fetchUpcomingEvents(3);
+                if (fetchedEvents.length > 0) {
+                    setEvents(fetchedEvents);
+                } else {
+                    // Fallback to static if no events or API key is missing
+                    setEvents(staticEvents.slice(0, 3));
+                }
+            } catch (error) {
+                console.error('Error loading events:', error);
+                setEvents(staticEvents.slice(0, 3));
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadEvents();
+    }, []);
 
     // Construct the Google Calendar embed URL
     const calendarSrc = `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=${encodeURIComponent(calendarConfig.timezone)}&src=${encodeURIComponent(calendarConfig.calendarId)}&color=%230EA5E9${datesParam}&mode=MONTH`;
@@ -56,38 +78,53 @@ const Events = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {events.map((event) => (
-                            <motion.div
-                                key={event.id}
-                                whileHover={{ y: -10 }}
-                                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
-                            >
-                                <div className="h-48 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 bg-brand-red text-white px-4 py-1 font-bold z-10 rounded-bl-lg">
-                                        {event.date}
+                        {loading ? (
+                            // Loading Skeletons
+                            Array.from({ length: 3 }).map((_, index) => (
+                                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg h-[400px] animate-pulse flex flex-col">
+                                    <div className="h-48 bg-gray-300 w-full" />
+                                    <div className="p-6 flex flex-col flex-grow">
+                                        <div className="h-6 bg-gray-300 rounded w-3/4 mb-4" />
+                                        <div className="h-4 bg-gray-300 rounded w-full mb-2" />
+                                        <div className="h-4 bg-gray-300 rounded w-5/6 mb-6" />
+                                        <div className="mt-auto h-12 bg-gray-300 rounded w-full" />
                                     </div>
-                                    <img
-                                        src={event.image}
-                                        alt={event.title}
-                                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-                                    />
                                 </div>
+                            ))
+                        ) : (
+                            events.map((event) => (
+                                <motion.div
+                                    key={event.id}
+                                    whileHover={{ y: -10 }}
+                                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
+                                >
+                                    <div className="h-48 relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 bg-brand-red text-white px-4 py-1 font-bold z-10 rounded-bl-lg">
+                                            {event.date}
+                                        </div>
+                                        <img
+                                            src={event.image || event.imageUrl}
+                                            alt={event.title}
+                                            className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                                        />
+                                    </div>
 
-                                <div className="p-6 flex flex-col flex-grow">
-                                    <h3 className="text-2xl font-bold text-brand-black mb-2 leading-tight">{event.title}</h3>
-                                    <p className="text-gray-600 mb-6 flex-grow">{event.description}</p>
+                                    <div className="p-6 flex flex-col flex-grow">
+                                        <h3 className="text-2xl font-bold text-brand-black mb-2 leading-tight">{event.title}</h3>
+                                        <p className="text-gray-600 mb-6 flex-grow">{event.description}</p>
 
-                                    <a
-                                        href={event.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-block w-full py-3 bg-brand-black text-white text-center font-bold rounded-lg hover:bg-brand-red transition-colors uppercase tracking-wider"
-                                    >
-                                        {event.buttonText || 'MORE DETAILS'}
-                                    </a>
-                                </div>
-                            </motion.div>
-                        ))}
+                                        <a
+                                            href={event.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-block w-full py-3 bg-brand-black text-white text-center font-bold rounded-lg hover:bg-brand-red transition-colors uppercase tracking-wider"
+                                        >
+                                            {event.buttonText || 'Add to Calendar'}
+                                        </a>
+                                    </div>
+                                </motion.div>
+                            ))
+                        )}
                     </div>
                 </div>
             </section>

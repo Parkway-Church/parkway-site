@@ -1,0 +1,89 @@
+import { calendarConfig } from '../config/calendar';
+import { generateGoogleCalendarLink } from '../utils/calendarUtils';
+
+// Represents the event schema expected by the UI
+export interface CalendarEvent {
+    id: string;
+    title: string;
+    date: string; // Formatted date string for display
+    description: string;
+    image: string;
+    link: string; // The "Add to Calendar" link
+    buttonText: string;
+}
+
+const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
+/**
+ * Fetches the upcoming events from the configured Google Calendar.
+ * Requires `VITE_GOOGLE_CALENDAR_API_KEY` to be set in `.env`.
+ */
+export const fetchUpcomingEvents = async (maxResults: number = 3): Promise<CalendarEvent[]> => {
+    const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+    
+    if (!apiKey) {
+        console.warn('Google Calendar API Key is missing. Please add VITE_GOOGLE_CALENDAR_API_KEY to your .env file.');
+        return [];
+    }
+
+    const { calendarId } = calendarConfig;
+    const timeMin = new Date().toISOString();
+    
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=${maxResults}&singleEvents=true&orderBy=startTime`;
+
+    try {
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error(`Calendar API returned status ${response.status}`);
+        }
+
+        const data = await response.json();
+        const events = data.items || [];
+
+        return events.map((event: any): CalendarEvent => {
+            const startDateTime = event.start.dateTime || event.start.date;
+            const endDateTime = event.end?.dateTime || event.end?.date;
+            
+            const startDateObj = new Date(startDateTime);
+            const formattedDate = startDateObj.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric'
+            });
+
+            // Extract the first image from the HTML description, if it exists
+            let imageUrl = DEFAULT_IMAGE;
+            const descriptionHtml = event.description || '';
+            const imgMatch = descriptionHtml.match(/<img[^>]+src="([^">]+)"/);
+            if (imgMatch && imgMatch[1]) {
+                imageUrl = imgMatch[1];
+            }
+
+            const cleanDescription = descriptionHtml.replace(/<[^>]*>?/gm, '').trim();
+            const truncatedDesc = cleanDescription.length > 150 
+                ? cleanDescription.substring(0, 150) + '...' 
+                : cleanDescription;
+
+            const googleCalendarLink = generateGoogleCalendarLink({
+                title: event.summary,
+                description: descriptionHtml,
+                startDate: startDateTime,
+                endDate: endDateTime,
+                location: event.location
+            });
+
+            return {
+                id: event.id,
+                title: event.summary,
+                date: formattedDate,
+                description: truncatedDesc,
+                image: imageUrl,
+                link: googleCalendarLink,
+                buttonText: 'Add to Calendar'
+            };
+        });
+    } catch (error) {
+        console.error('Failed to fetch calendar events:', error);
+        return [];
+    }
+};
