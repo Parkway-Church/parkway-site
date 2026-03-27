@@ -4,6 +4,7 @@ import communityImg from '../assets/event_images/hearthands.avif';
 import mensImg from '../assets/event_images/mens.webp';
 import womensImg from '../assets/event_images/womens.webp';
 import bibleImg from '../assets/event_images/bible.avif';
+import serviceImg from '../assets/event_images/service.webp';
 
 export const keywordImageMap: Record<string, string[]> = {
     worship: [worshipImg],
@@ -13,7 +14,7 @@ export const keywordImageMap: Record<string, string[]> = {
     women: [womensImg],
     prayer: [bibleImg],
     bible: [bibleImg],
-    service: [worshipImg]
+    service: [serviceImg]
 };
 
 export const defaultEventImage = worshipImg;
