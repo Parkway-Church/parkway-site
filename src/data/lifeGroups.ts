@@ -42,7 +42,7 @@ export const lifeGroupsData: LifeGroup[] = [
         day: "Monthly Fridays",
         time: "6:30 PM",
         location: "Parkway Christian Church",
-        bio: "A time for ladies to get together, study the word of God, and encourage one another and grow in our faith.",
+        bio: "A creative and welcoming space for women to connect, laugh, and grow together. Each gathering is filled with meaningful activities, great conversation, and a time of reflection that encourages your heart and strengthens your faith.",
         imageUrl: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1000"
     }
 ];
