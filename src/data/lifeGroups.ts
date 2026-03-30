@@ -15,8 +15,8 @@ export const lifeGroupsData: LifeGroup[] = [
         day: "Martes",
         time: "7:00 PM",
         location: "Parkway Christian Church",
-        bio: "La Merienda es un grupo de personas imperfectas que se reúnen semanalmente para dialogar de la palabra de Dios, tener conversaciones sobre las realidades de la vida, y oramos los unos por los otros y nunca falta una taza de café en la mano. Estas invitado a compartir con nosotros, te esperamos.",
-        imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=1000"
+        bio: "La Merienda es un grupo de personas imperfectas que se reúnen semanalmente en el salón 3 para dialogar de la palabra de Dios, tener conversaciones sobre las realidades de la vida, y oramos los unos por los otros y nunca falta una taza de café en la mano. Estás invitado a compartir con nosotros, te esperamos.",
+        imageUrl: "/grupo-de-vida-espanol.png"
     },
     {
         id: '2',
@@ -25,7 +25,7 @@ export const lifeGroupsData: LifeGroup[] = [
         time: "7:00 PM",
         location: "Parkway Christian Church Room 3",
         bio: "Our Love Is The Way Life Group is a place where we learn to love the way Jesus loved. We are challenged by the word to think outside of our comfort zone and grow together.",
-        imageUrl: "https://images.unsplash.com/photo-1529156069896-85fb3fe87d70?auto=format&fit=crop&q=80&w=1000"
+        imageUrl: "/life-group-logo.jpg"
     },
     {
         id: '3',

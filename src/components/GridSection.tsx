@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import whatToExpectImg from '../assets/what-to-expect.jpg';
 
 interface GridItemProps {
     title: string;
@@ -12,33 +13,33 @@ interface GridItemProps {
     delay: number;
 }
 
-const GridItem: React.FC<GridItemProps> = ({ title, description, linkText, link, image, delay }) => {
-    const isExternal = link.startsWith('http');
+const GridItemContent: React.FC<Omit<GridItemProps, 'delay'>> = ({ title, description, linkText, image }) => (
+    <>
+        <div className="overflow-hidden rounded-lg mb-4 relative h-64 md:h-56 lg:h-64 cursor-pointer">
+            <img
+                src={image}
+                alt={title}
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:blur-[2px]"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
 
-    const Content = () => (
-        <>
-            <div className="overflow-hidden rounded-lg mb-4 relative h-64 md:h-56 lg:h-64 cursor-pointer">
-                <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:blur-[2px]"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    <div className="border border-[#38b6ff] px-4 py-2">
-                        <h3 className="text-white text-lg font-bold uppercase tracking-widest">{title}</h3>
-                    </div>
+            {/* Hover Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <div className="border border-[#38b6ff] px-4 py-2">
+                    <h3 className="text-white text-lg font-bold uppercase tracking-widest">{title}</h3>
                 </div>
             </div>
-            <h3 className="text-xl font-bold uppercase tracking-wider mb-2">{title}</h3>
-            <p className="text-gray-600 mb-4 text-sm flex-grow leading-relaxed">{description}</p>
-            <div className="flex items-center text-brand-red font-bold text-sm tracking-wide group-hover:underline">
-                {linkText} <ArrowRight size={16} className="ml-1" />
-            </div>
-        </>
-    );
+        </div>
+        <h3 className="text-xl font-bold uppercase tracking-wider mb-2">{title}</h3>
+        <p className="text-gray-600 mb-4 text-sm flex-grow leading-relaxed">{description}</p>
+        <div className="flex items-center text-brand-red font-bold text-sm tracking-wide group-hover:underline">
+            {linkText} <ArrowRight size={16} className="ml-1" />
+        </div>
+    </>
+);
+
+const GridItem: React.FC<GridItemProps> = ({ title, description, linkText, link, image, delay }) => {
+    const isExternal = link.startsWith('http');
 
     return (
         <motion.div
@@ -48,12 +49,12 @@ const GridItem: React.FC<GridItemProps> = ({ title, description, linkText, link,
             className="flex flex-col group"
         >
             {isExternal ? (
-                <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full flex flex-col">
-                    <Content />
+                <a href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col h-full">
+                    <GridItemContent title={title} description={description} linkText={linkText} image={image} link={link} />
                 </a>
             ) : (
-                <Link to={link} className="block h-full flex flex-col">
-                    <Content />
+                <Link to={link} className="flex flex-col h-full">
+                    <GridItemContent title={title} description={description} linkText={linkText} image={image} link={link} />
                 </Link>
             )}
         </motion.div>
@@ -67,7 +68,7 @@ const GridSection: React.FC = () => {
             description: 'This is the perfect place for imperfect people to experience the presence of God. Join us in person or online.',
             linkText: 'What To Expect',
             link: '/events',
-            image: 'https://images.unsplash.com/photo-1510590337019-5ef2d3977e2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            image: whatToExpectImg,
         },
         {
             title: 'Next Steps',
