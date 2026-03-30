@@ -73,9 +73,14 @@ const Volunteers = () => {
                                                 {team.bio}
                                             </p>
                                             <div className="mt-8">
-                                                <button className="bg-brand-red text-white py-3 px-8 rounded font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-lg">
+                                                <a
+                                                    href="https://forms.gle/rRhLTGrddQUzugck8"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-block bg-brand-red text-white py-3 px-8 rounded font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-lg"
+                                                >
                                                     Join This Team
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

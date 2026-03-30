@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
                         <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform -translate-y-2 group-hover:translate-y-0">
                             <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md">
                                 <Link to="/volunteers" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Volunteers</Link>
-                                <a href="#" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Get Connected</a>
+                                <Link to="/groups" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Get Connected</Link>
                                 <Link to="/sermons" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Sermons</Link>
                                 <Link to="/videos" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Videos</Link>
                                 <Link to="/gallery" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Gallery</Link>
@@ -113,7 +113,7 @@ const Navbar: React.FC = () => {
                             <div className="w-full flex flex-col items-center">
                                 <button
                                     onClick={() => toggleSection('who-we-are')}
-                                    className="flex items-center justify-center gap-2 text-lg font-semibold text-brand-red/80 uppercase tracking-widest text-sm mb-2 w-full"
+                                    className="flex items-center justify-center gap-2 font-semibold text-brand-red/80 uppercase tracking-widest text-sm mb-2 w-full"
                                 >
                                     Who We Are
                                     <ChevronDown
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
                             <div className="w-full flex flex-col items-center">
                                 <button
                                     onClick={() => toggleSection('get-connected')}
-                                    className="flex items-center justify-center gap-2 text-lg font-semibold text-brand-red/80 uppercase tracking-widest text-sm mb-2 w-full"
+                                    className="flex items-center justify-center gap-2 font-semibold text-brand-red/80 uppercase tracking-widest text-sm mb-2 w-full"
                                 >
                                     Get Connected
                                     <ChevronDown
@@ -180,7 +180,7 @@ const Navbar: React.FC = () => {
                             <div className="w-full flex flex-col items-center">
                                 <button
                                     onClick={() => toggleSection('resources')}
-                                    className="flex items-center justify-center gap-2 text-lg font-semibold text-brand-red/80 uppercase tracking-widest text-sm mb-2 w-full"
+                                    className="flex items-center justify-center gap-2 font-semibold text-brand-red/80 uppercase tracking-widest text-sm mb-2 w-full"
                                 >
                                     Resources
                                     <ChevronDown
@@ -197,7 +197,7 @@ const Navbar: React.FC = () => {
                                             className="overflow-hidden flex flex-col items-center space-y-3"
                                         >
                                             <Link to="/volunteers" className="text-base text-gray-300 hover:text-brand-white pt-2" onClick={() => setIsOpen(false)}>Volunteers</Link>
-                                            <a href="#" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Get Connected</a>
+                                            <Link to="/groups" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Get Connected</Link>
                                             <Link to="/sermons" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Sermons</Link>
                                             <Link to="/videos" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Videos</Link>
                                             <Link to="/gallery" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Gallery</Link>

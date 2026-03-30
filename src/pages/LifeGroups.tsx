@@ -86,9 +86,6 @@ const LifeGroups = () => {
                                                 {group.bio}
                                             </p>
 
-                                            <button className="bg-brand-red text-white py-3 px-8 rounded font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-lg transform hover:-translate-y-1">
-                                                Join This Group
-                                            </button>
                                         </div>
                                     </div>
                                 </motion.div>

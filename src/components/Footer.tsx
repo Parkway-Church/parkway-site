@@ -73,12 +73,12 @@ const Footer: React.FC = () => {
                 <div>
                     <h4 className="font-bold uppercase tracking-wider mb-6">Get Connected</h4>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-white transition-colors">Parkway Online</a></li>
+                        <li><Link to="/online" className="hover:text-white transition-colors">Parkway Online</Link></li>
                         <li><Link to="/groups" className="hover:text-white transition-colors">Life Groups</Link></li>
                         <li><Link to="/journeyland" className="hover:text-white transition-colors">Journey Land</Link></li>
                         <li><Link to="/kids" className="hover:text-white transition-colors">Journey Kids</Link></li>
                         <li><Link to="/youth" className="hover:text-white transition-colors">The Park Youth</Link></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Events</a></li>
+                        <li><Link to="/events" className="hover:text-white transition-colors">Events</Link></li>
                     </ul>
                 </div>
 
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
                     <h4 className="font-bold uppercase tracking-wider mb-6">Resources</h4>
                     <ul className="space-y-3 text-sm text-gray-400">
                         <li><Link to="/volunteers" className="hover:text-white transition-colors">Volunteers</Link></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Get Connected</a></li>
+                        <li><Link to="/groups" className="hover:text-white transition-colors">Get Connected</Link></li>
                         <li><Link to="/sermons" className="hover:text-white transition-colors">Sermons</Link></li>
                         <li><Link to="/videos" className="hover:text-white transition-colors">Videos</Link></li>
                         <li><Link to="/gallery" className="hover:text-white transition-colors">Gallery</Link></li>

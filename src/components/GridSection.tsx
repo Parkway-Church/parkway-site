@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import whatToExpectImg from '../assets/what-to-expect.jpg';
+// import whatToExpectImg from '../assets/what-to-expect.jpg';  <-- Removed import
 
 interface GridItemProps {
     title: string;
@@ -68,7 +68,7 @@ const GridSection: React.FC = () => {
             description: 'This is the perfect place for imperfect people to experience the presence of God. Join us in person or online.',
             linkText: 'What To Expect',
             link: '/events',
-            image: whatToExpectImg,
+            image: '/what-to-expect.jpg',
         },
         {
             title: 'Next Steps',
