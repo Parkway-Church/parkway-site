@@ -18,9 +18,9 @@ const CurrentSeries: React.FC = () => {
                 {/* Right Side - Yellow/Gold Image */}
                 <div className="w-full md:w-1/2 relative bg-yellow-500">
                     <img
-                        src="https://images.unsplash.com/photo-1533227297464-9be1a72d73f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        src="/images/harvest_field_verse.jpg"
                         className="absolute inset-0 w-full h-full object-cover"
-                        alt="Golden field"
+                        alt="Harvest Field Verse"
                     />
                 </div>
             </div>
@@ -33,12 +33,11 @@ const CurrentSeries: React.FC = () => {
             {/* Content Overlay */}
             <div className="relative z-10 container mx-auto px-4 flex flex-col md:flex-row items-center h-full py-12">
                 <div className="w-full md:w-1/2 text-white pr-0 md:pr-12 lg:pr-24">
-                    <h3 className="text-brand-red font-bold tracking-widest uppercase mb-2">Our Current Series</h3>
                     <h2 className="text-5xl md:text-7xl font-bold uppercase leading-none mb-6">
                         First<br />Things<br />First
                     </h2>
                     <p className="text-sm md:text-base opacity-90 leading-relaxed mb-8 max-w-lg">
-                        When we put God first—in our priorities, our practices, and our posture—He brings divine order, provision, and purpose to our lives. Through seeking His kingdom, fasting in dependence, giving with open hands, and praying with surrendered hearts, we realign our world around His will.
+                        When we put God first, everything else finds its place. Our priorities shift, our hearts align, and our lives begin to reflect His purpose. As we seek, trust & fully surrender to God, we begin to experience clarity where there was confusion, provision where there was lack, and direction where there was uncertainty. This is what happens when we realign our lives with God’s will.
                     </p>
 
                     <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
