@@ -14,8 +14,8 @@ export const photoGalleries: PhotoGallery[] = [
     },
     {
         id: 'gallery-2',
-        title: 'Community Outreach',
-        coverImage: 'https://images.unsplash.com/photo-1543666170-496a77d33b28?auto=format&fit=crop&w=1000&q=80',
+        title: 'Events',
+        coverImage: '/images/events-gallery.jpg',
         googlePhotosUrl: 'https://photos.google.com' // Placeholder
     },
     {
