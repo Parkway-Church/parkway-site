@@ -18,10 +18,10 @@
 
 export const bloggerConfig = {
     // Replace with your actual API Key
-    apiKey: '',
+    apiKey: 'AIzaSyDYnP7mrO7z836Ann_b6yzddc97RlI4nsM',
 
     // Replace with your actual Blog ID
-    blogId: '',
+    blogId: '6059657117066572923',
 
     // Number of posts to fetch
     maxPosts: 6
