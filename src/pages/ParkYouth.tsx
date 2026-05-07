@@ -18,7 +18,18 @@ const ParkYouth: React.FC = () => {
                 // Fetch using the youth calendar ID from config, skip 14 days ahead
                 const fetchedEvents = await fetchUpcomingEvents(3, calendarConfig.youthCalendarId, 14);
                 if (fetchedEvents && fetchedEvents.length > 0) {
-                    setEvents(fetchedEvents);
+                    // Intercept and update Yth Night to Yth Connect
+                    const updatedEvents = fetchedEvents.map(event => {
+                        if (event.title.toUpperCase().includes('YTH NIGHT')) {
+                            return {
+                                ...event,
+                                title: 'YTH CONNECT',
+                                description: 'Real conversations. Real faith. Real Community.'
+                            };
+                        }
+                        return event;
+                    });
+                    setEvents(updatedEvents);
                 } else {
                     setEvents(staticEvents.slice(0, 3) as any);
                 }
