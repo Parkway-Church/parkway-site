@@ -107,7 +107,7 @@ const OurMission = () => {
                             className="relative h-[500px] rounded-lg overflow-hidden shadow-2xl"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1543666170-496a77d33b28?auto=format&fit=crop&q=80&w=1000"
+                                src="/images/worship.webp"
                                 alt="Community worship"
                                 className="object-cover w-full h-full"
                             />
