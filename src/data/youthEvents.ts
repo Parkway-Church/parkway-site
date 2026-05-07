@@ -32,7 +32,7 @@ export const youthEvents: YouthEvent[] = [
         title: "YOUTH RETREAT",
         description: "Encounter God in a powerful way. Games - Worship - Bonfires - Late-night laughs - Life-changing moments",
         date: "SEPT 4-7",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        image: "/images/park_youth/youth_retreat.png",
         link: "https://www.facebook.com/events",
         buttonText: "GET DETAILS"
     }

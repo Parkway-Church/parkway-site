@@ -33,7 +33,8 @@ const ParkYouth: React.FC = () => {
                                 ...event,
                                 title: 'YOUTH RETREAT',
                                 description: 'Encounter God in a powerful way. Games - Worship - Bonfires - Late-night laughs - Life-changing moments',
-                                date: 'SEPT 4-7'
+                                date: 'SEPT 4-7',
+                                image: '/images/park_youth/youth_retreat.png'
                             };
                         }
                         return event;
