@@ -156,7 +156,7 @@ const ParkYouth: React.FC = () => {
                                 >
                                     <div className="absolute inset-0 bg-neon-purple/20 group-hover:bg-neon-purple/40 transition-colors pointer-events-none"></div>
                                     <div className="h-48 bg-gray-800 mb-4 flex items-center justify-center overflow-hidden relative">
-                                        <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-all duration-500 hover:scale-105" />
+                                        <img src={event.image} alt={event.title} className="w-full h-full object-contain transition-all duration-500 hover:scale-105" />
                                         {event.date && (
                                             <div className="absolute top-0 right-0 bg-neon-yellow text-black font-bold px-3 py-1 font-mono text-sm transform translate-x-1 -translate-y-1 rotate-3 border-2 border-black">
                                                 {event.date}
