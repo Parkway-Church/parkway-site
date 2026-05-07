@@ -34,7 +34,7 @@ export const lifeGroupsData: LifeGroup[] = [
         time: "8:00 AM",
         location: "Parkway Christian Church",
         bio: "A space for men to grow in their faith, engage God’s Word, and support one another in living out their calling in today’s world. We meet biweekly on Saturdays in Room 3.",
-        imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000"
+        imageUrl: "/images/bible-study.webp"
     },
     {
         id: '4',

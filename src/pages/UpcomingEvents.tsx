@@ -28,7 +28,7 @@ const UpcomingEvents = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-brand-red uppercase tracking-widest text-sm font-bold mb-3"
+                        className="text-brand-red uppercase tracking-widest text-5xl md:text-7xl font-bold mb-3"
                     >
                         Special Events
                     </motion.p>

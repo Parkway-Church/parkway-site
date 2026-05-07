@@ -141,7 +141,7 @@ const Events = () => {
                                 to="/upcoming-events"
                                 className="inline-flex items-center gap-2 bg-brand-black text-white font-bold px-8 py-3.5 rounded-xl hover:bg-brand-red transition-colors uppercase tracking-wider text-sm shadow-md"
                             >
-                                View All Upcoming Events
+                                View All Special Events
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
