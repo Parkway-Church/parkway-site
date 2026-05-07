@@ -34,7 +34,7 @@ export const volunteersData: VolunteerRole[] = [
         role: "Student Ministry",
         bio: "Lead small groups, hang out at events, and mentor students. The Youth Team is all about building relationships and pointing students to Christ during these pivotal years.",
         imageUrl: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-    }
+    },
     {
         id: '5',
         name: "Special Event Volunteers",
