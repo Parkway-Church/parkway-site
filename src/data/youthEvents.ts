@@ -20,8 +20,8 @@ export const youthEvents: YouthEvent[] = [
     },
     {
         id: 2,
-        title: "YTH NIGHT",
-        description: "Worship, Word, and After Party.",
+        title: "YTH CONNECT",
+        description: "Real conversations. Real Faith. Real Community",
         date: "SUNDAYS",
         image: "https://images.unsplash.com/photo-1510590337019-5ef2d3977e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         link: "https://www.facebook.com/events",
