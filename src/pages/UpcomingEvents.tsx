@@ -19,7 +19,7 @@ const UpcomingEvents = () => {
             <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=80")' }}
+                    style={{ backgroundImage: 'url("/images/worship.webp")' }}
                 >
                     <div className="absolute inset-0 bg-black/65" />
                 </div>
