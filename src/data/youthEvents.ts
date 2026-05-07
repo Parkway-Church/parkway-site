@@ -23,15 +23,15 @@ export const youthEvents: YouthEvent[] = [
         title: "YTH CONNECT",
         description: "Real conversations. Real Faith. Real Community",
         date: "SUNDAYS",
-        image: "https://images.unsplash.com/photo-1510590337019-5ef2d3977e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        image: "/images/park_youth/yth_connect.jpg",
         link: "https://www.facebook.com/events",
         buttonText: "MORE INFO"
     },
     {
         id: 3,
-        title: "BEACH DAY",
-        description: "Sun, Sand, and Spikball tournament.",
-        date: "AUGUST 12",
+        title: "YOUTH RETREAT",
+        description: "Encounter God in a powerful way. Games - Worship - Bonfires - Late-night laughs - Life-changing moments",
+        date: "SEPT 4-7",
         image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         link: "https://www.facebook.com/events",
         buttonText: "GET DETAILS"

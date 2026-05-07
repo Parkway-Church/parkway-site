@@ -28,6 +28,13 @@ const ParkYouth: React.FC = () => {
                                 description: 'Real conversations. Real faith. Real Community.',
                                 image: '/images/park_youth/yth_connect.jpg'
                             };
+                        } else if (titleUpper.includes('BEACH DAY') || titleUpper.includes('YOUTH RETREAT') || titleUpper.includes('RETREAT')) {
+                            return {
+                                ...event,
+                                title: 'YOUTH RETREAT',
+                                description: 'Encounter God in a powerful way. Games - Worship - Bonfires - Late-night laughs - Life-changing moments',
+                                date: 'SEPT 4-7'
+                            };
                         }
                         return event;
                     });
