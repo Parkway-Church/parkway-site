@@ -20,7 +20,8 @@ const ParkYouth: React.FC = () => {
                 if (fetchedEvents && fetchedEvents.length > 0) {
                     // Intercept and update Yth Night to Yth Connect
                     const updatedEvents = fetchedEvents.map(event => {
-                        if (event.title.toUpperCase().includes('YTH NIGHT')) {
+                        const titleUpper = event.title.toUpperCase();
+                        if (titleUpper.includes('YTH NIGHT') || titleUpper.includes('YTH CONNECT') || titleUpper.includes('YOUTH NIGHT') || titleUpper.includes('YOUTH CONNECT')) {
                             return {
                                 ...event,
                                 title: 'YTH CONNECT',
