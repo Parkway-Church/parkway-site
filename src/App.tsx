@@ -15,6 +15,7 @@ import ParkYouth from './pages/ParkYouth';
 import JourneyLand from './pages/JourneyLand';
 import JourneyKids from './pages/JourneyKids';
 import Events from './pages/Events';
+import UpcomingEvents from './pages/UpcomingEvents';
 import ParkwayOnline from './pages/ParkwayOnline';
 import Giving from './pages/Giving';
 import ScrollToTop from './components/ScrollToTop';
@@ -40,6 +41,7 @@ function App() {
         <Route path="/kids" element={<JourneyKids />} />
         <Route path="/journeyland" element={<JourneyLand />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/upcoming-events" element={<UpcomingEvents />} />
         <Route path="/giving" element={<Giving />} />
       </Routes>
       <Footer />

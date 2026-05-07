@@ -21,6 +21,7 @@ export interface GrapeBannerEvent {
     description: string;
     image: string;
     link: string;
+    location?: string;
 }
 
 /**
@@ -116,62 +117,61 @@ export const fetchUpcomingEvents = async (maxResults: number = 3, targetCalendar
 
 const SPECIAL_EVENT_LABEL = 'special event';
 
-export const fetchSpecialEvent = async (): Promise<GrapeBannerEvent | null> => {
-    const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
-    if (!apiKey) return null;
+const isSpecialEvent = (e: any): boolean => {
+    const titleMatch = (e.summary || '').toLowerCase().includes(SPECIAL_EVENT_LABEL);
+    const descMatch = (e.description || '').replace(/<[^>]*>/g, '').toLowerCase().includes(SPECIAL_EVENT_LABEL);
+    return titleMatch || descMatch;
+};
 
+const transformToGrapeBannerEvent = (e: any): GrapeBannerEvent => {
+    const startRaw = e.start.dateTime || e.start.date;
+    const endRaw = e.end?.dateTime || e.end?.date;
+    const isAllDay = !e.start.dateTime;
+
+    let dateDisplay = '';
+    let timeDisplay = 'All Day';
+
+    if (isAllDay) {
+        const [year, month, day] = e.start.date.split('-');
+        const d = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+        dateDisplay = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
+    } else {
+        const d = new Date(e.start.dateTime);
+        dateDisplay = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
+        timeDisplay = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    }
+
+    const descHtml = e.description || '';
+    const imgMatch = descHtml.match(/<img[^>]+src="([^">]+)"/);
+    const image = getEventImage(e.summary, imgMatch?.[1] ?? null);
+    const cleanDesc = descHtml.replace(/<[^>]*>?/gm, '').trim();
+    const description = cleanDesc.length > 300 ? cleanDesc.substring(0, 300) + '...' : cleanDesc;
+    const link = generateGoogleCalendarLink({ title: e.summary, description: descHtml, startDate: startRaw, endDate: endRaw, location: e.location });
+
+    return { id: e.id, title: e.summary, date: dateDisplay, time: timeDisplay, description, image, link, location: e.location };
+};
+
+const fetchSpecialEventsRaw = async (): Promise<any[]> => {
+    const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+    if (!apiKey) return [];
     const timeMin = new Date().toISOString();
     const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarConfig.calendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=50&singleEvents=true&orderBy=startTime`;
-
     try {
         const response = await fetch(url);
-        if (!response.ok) return null;
-
+        if (!response.ok) return [];
         const data = await response.json();
-        const items: any[] = data.items || [];
-
-        const grapeEvent = items.find((e) => {
-            const titleMatch = (e.summary || '').toLowerCase().includes(SPECIAL_EVENT_LABEL);
-            const descMatch = (e.description || '').replace(/<[^>]*>/g, '').toLowerCase().includes(SPECIAL_EVENT_LABEL);
-            return titleMatch || descMatch;
-        });
-        if (!grapeEvent) return null;
-
-        const startRaw = grapeEvent.start.dateTime || grapeEvent.start.date;
-        const endRaw = grapeEvent.end?.dateTime || grapeEvent.end?.date;
-        const isAllDay = !grapeEvent.start.dateTime;
-
-        let dateDisplay = '';
-        let timeDisplay = 'All Day';
-
-        if (isAllDay) {
-            const [year, month, day] = grapeEvent.start.date.split('-');
-            const d = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-            dateDisplay = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
-        } else {
-            const d = new Date(grapeEvent.start.dateTime);
-            dateDisplay = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
-            timeDisplay = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-        }
-
-        const descHtml = grapeEvent.description || '';
-        const imgMatch = descHtml.match(/<img[^>]+src="([^">]+)"/);
-        const htmlImageUrl = imgMatch?.[1] ?? null;
-        const image = getEventImage(grapeEvent.summary, htmlImageUrl);
-
-        const cleanDesc = descHtml.replace(/<[^>]*>?/gm, '').trim();
-        const description = cleanDesc.length > 200 ? cleanDesc.substring(0, 200) + '...' : cleanDesc;
-
-        const link = generateGoogleCalendarLink({
-            title: grapeEvent.summary,
-            description: descHtml,
-            startDate: startRaw,
-            endDate: endRaw,
-            location: grapeEvent.location,
-        });
-
-        return { id: grapeEvent.id, title: grapeEvent.summary, date: dateDisplay, time: timeDisplay, description, image, link };
+        return (data.items || []).filter(isSpecialEvent);
     } catch {
-        return null;
+        return [];
     }
+};
+
+export const fetchSpecialEvent = async (): Promise<GrapeBannerEvent | null> => {
+    const items = await fetchSpecialEventsRaw();
+    return items.length > 0 ? transformToGrapeBannerEvent(items[0]) : null;
+};
+
+export const fetchAllSpecialEvents = async (): Promise<GrapeBannerEvent[]> => {
+    const items = await fetchSpecialEventsRaw();
+    return items.map(transformToGrapeBannerEvent);
 };
