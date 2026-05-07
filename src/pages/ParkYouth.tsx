@@ -24,7 +24,8 @@ const ParkYouth: React.FC = () => {
                             return {
                                 ...event,
                                 title: 'YTH CONNECT',
-                                description: 'Real conversations. Real faith. Real Community.'
+                                description: 'Real conversations. Real faith. Real Community.',
+                                image: '/images/park_youth/yth_connect.jpg'
                             };
                         }
                         return event;
