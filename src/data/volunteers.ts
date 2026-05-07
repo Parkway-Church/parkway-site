@@ -38,8 +38,8 @@ export const volunteersData: VolunteerRole[] = [
     {
         id: '5',
         name: "Special Event Volunteers",
-        role: "Special Event Volunteers",
+        role: "Helping Hands",
         bio: "Volunteer Opportunities to serve",
         imageUrl: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-    }
+    },
 ];
