@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { calendarConfig } from '../config/calendar';
 import { mainEvents as staticEvents } from '../data/mainEvents';
-import { fetchUpcomingEvents } from '../services/calendarService';
-import type { CalendarEvent } from '../services/calendarService';
+import { fetchUpcomingEvents, fetchSpecialEvent } from '../services/calendarService';
+import type { CalendarEvent, GrapeBannerEvent } from '../services/calendarService';
+import GrapeEventBanner from '../components/GrapeEventBanner';
 
 const Events = () => {
     const now = new Date();
@@ -14,18 +15,17 @@ const Events = () => {
 
     const [events, setEvents] = useState<CalendarEvent[] | any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [grapeEvent, setGrapeEvent] = useState<GrapeBannerEvent | null>(null);
 
     useEffect(() => {
         const loadEvents = async () => {
             try {
-                // We skip 14 days ahead for the featured events page
-                const fetchedEvents = await fetchUpcomingEvents(3, undefined, 14);
-                if (fetchedEvents.length > 0) {
-                    setEvents(fetchedEvents);
-                } else {
-                    // Fallback to static if no events or API key is missing
-                    setEvents(staticEvents.slice(0, 3));
-                }
+                const [fetchedEvents, grape] = await Promise.all([
+                    fetchUpcomingEvents(3, undefined, 14),
+                    fetchSpecialEvent(),
+                ]);
+                setEvents(fetchedEvents.length > 0 ? fetchedEvents : staticEvents.slice(0, 3));
+                setGrapeEvent(grape);
             } catch (error) {
                 console.error('Error loading events:', error);
                 setEvents(staticEvents.slice(0, 3));
@@ -129,6 +129,15 @@ const Events = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Grape Featured Event Banner */}
+            {grapeEvent && (
+                <section className="pb-10 bg-gray-100">
+                    <div className="container mx-auto px-4">
+                        <GrapeEventBanner event={grapeEvent} />
+                    </div>
+                </section>
+            )}
 
             {/* Calendar Section */}
             <section className="py-20">

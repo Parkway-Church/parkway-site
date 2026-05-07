@@ -13,6 +13,16 @@ export interface CalendarEvent {
     buttonText: string;
 }
 
+export interface GrapeBannerEvent {
+    id: string;
+    title: string;
+    date: string;       // e.g. "SAT, MAY 10"
+    time: string;       // e.g. "6:00 PM" or "All Day"
+    description: string;
+    image: string;
+    link: string;
+}
+
 /**
  * Fetches the upcoming events from the configured Google Calendar.
  * Requires `VITE_GOOGLE_CALENDAR_API_KEY` to be set in `.env`.
@@ -101,5 +111,67 @@ export const fetchUpcomingEvents = async (maxResults: number = 3, targetCalendar
     } catch (error) {
         console.error('Failed to fetch calendar events:', error);
         return [];
+    }
+};
+
+const SPECIAL_EVENT_LABEL = 'special event';
+
+export const fetchSpecialEvent = async (): Promise<GrapeBannerEvent | null> => {
+    const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+    if (!apiKey) return null;
+
+    const timeMin = new Date().toISOString();
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarConfig.calendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=50&singleEvents=true&orderBy=startTime`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) return null;
+
+        const data = await response.json();
+        const items: any[] = data.items || [];
+
+        const grapeEvent = items.find((e) => {
+            const titleMatch = (e.summary || '').toLowerCase().includes(SPECIAL_EVENT_LABEL);
+            const descMatch = (e.description || '').replace(/<[^>]*>/g, '').toLowerCase().includes(SPECIAL_EVENT_LABEL);
+            return titleMatch || descMatch;
+        });
+        if (!grapeEvent) return null;
+
+        const startRaw = grapeEvent.start.dateTime || grapeEvent.start.date;
+        const endRaw = grapeEvent.end?.dateTime || grapeEvent.end?.date;
+        const isAllDay = !grapeEvent.start.dateTime;
+
+        let dateDisplay = '';
+        let timeDisplay = 'All Day';
+
+        if (isAllDay) {
+            const [year, month, day] = grapeEvent.start.date.split('-');
+            const d = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+            dateDisplay = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
+        } else {
+            const d = new Date(grapeEvent.start.dateTime);
+            dateDisplay = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
+            timeDisplay = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        }
+
+        const descHtml = grapeEvent.description || '';
+        const imgMatch = descHtml.match(/<img[^>]+src="([^">]+)"/);
+        const htmlImageUrl = imgMatch?.[1] ?? null;
+        const image = getEventImage(grapeEvent.summary, htmlImageUrl);
+
+        const cleanDesc = descHtml.replace(/<[^>]*>?/gm, '').trim();
+        const description = cleanDesc.length > 200 ? cleanDesc.substring(0, 200) + '...' : cleanDesc;
+
+        const link = generateGoogleCalendarLink({
+            title: grapeEvent.summary,
+            description: descHtml,
+            startDate: startRaw,
+            endDate: endRaw,
+            location: grapeEvent.location,
+        });
+
+        return { id: grapeEvent.id, title: grapeEvent.summary, date: dateDisplay, time: timeDisplay, description, image, link };
+    } catch {
+        return null;
     }
 };
