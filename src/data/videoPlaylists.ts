@@ -11,12 +11,12 @@ export const videoPlaylists: Playlist[] = [
         description: 'Watch our full Sunday service replays.'
     },
     {
-        id: 'PLNHewxce_fZd_456abc_placeholder1', // Placeholder
-        title: 'Worship Series',
-        description: 'A collection of our favorite worship moments.'
+        id: 'PLhqUSkvwvUDbDEeLa2A1Iv_gdQ_IOiWkE',
+        title: 'Shorts',
+        description: 'A collection of inspiring short messages.'
     },
     {
-        id: 'PLNHewxce_fZfJ3nmQN_uNM2ZIz7TRvUKH', // Placeholder
+        id: 'PLNHewxce_fZfJ3nmQN_uNM2ZIz7TRvUKH',
         title: 'Monthly Messages',
         description: 'Monthly messages from our Pastor.'
     }
