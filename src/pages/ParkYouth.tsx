@@ -36,6 +36,13 @@ const ParkYouth: React.FC = () => {
                                 date: 'SEPT 4-7',
                                 image: '/images/park_youth/youth_retreat.png'
                             };
+                        } else if (titleUpper.includes('SUMMER CAMP')) {
+                            return {
+                                ...event,
+                                title: "SUMMER CAMP '26",
+                                description: "Best week of your life. 7th grade to 10th grade",
+                                date: "JULY 5-10"
+                            };
                         }
                         return event;
                     });

@@ -12,8 +12,8 @@ export const youthEvents: YouthEvent[] = [
     {
         id: 1,
         title: "SUMMER CAMP '26",
-        description: "Best week of your life. Don't miss it.",
-        date: "JULY 20-25",
+        description: "Best week of your life. 7th grade to 10th grade",
+        date: "JULY 5-10",
         image: "/images/park_youth/sticker_bomb_bg.png",
         link: "https://www.facebook.com/events", // Placeholder link
         buttonText: "REGISTER NOW"
