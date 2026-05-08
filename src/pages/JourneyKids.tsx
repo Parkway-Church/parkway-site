@@ -75,9 +75,11 @@ const JourneyKids: React.FC = () => {
                         <p className="text-xl text-gray-600 leading-relaxed mb-6 font-medium">
                             Welcome to Parkway Kids, where faith is fun, creativity is encouraged, and a little mess means learning is happening. In a safe and joyful environment, children explore God’s love through hands-on activities, music, and stories.
                         </p>
-                        <button className="bg-yellow-400 text-brand-black font-bold py-3 px-8 rounded-full shadow-[0_4px_0_rgb(202,138,4)] hover:shadow-[0_2px_0_rgb(202,138,4)] hover:translate-y-[2px] transition-all text-lg uppercase tracking-wide">
-                            Plan A Visit
-                        </button>
+                        <Link to="/kids-visit">
+                            <button className="bg-yellow-400 text-brand-black font-bold py-3 px-8 rounded-full shadow-[0_4px_0_rgb(202,138,4)] hover:shadow-[0_2px_0_rgb(202,138,4)] hover:translate-y-[2px] transition-all text-lg uppercase tracking-wide">
+                                Plan A Visit
+                            </button>
+                        </Link>
                     </motion.div>
                 </div>
             </section>
