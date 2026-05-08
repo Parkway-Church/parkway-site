@@ -134,7 +134,7 @@ const UpcomingEvents = () => {
                                     href={event.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-white/20 text-white border border-white/40 font-bold px-8 py-3.5 rounded-xl hover:bg-white/30 transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
+                                    className="inline-flex items-center gap-2 bg-white/20 text-white border border-white/40 font-bold px-8 py-3.5 rounded-xl hover:bg-white/30 hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider text-sm w-fit shadow-lg"
                                 >
                                     Add to Calendar
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +147,7 @@ const UpcomingEvents = () => {
                                             href="https://forms.gle/MPqpEjyat7Ew3EsA9"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-8 py-3.5 rounded-xl hover:bg-red-700 transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
+                                            className="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-8 py-3.5 rounded-xl hover:bg-red-700 hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider text-sm w-fit shadow-lg"
                                         >
                                             Register Kids Here
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,7 +158,7 @@ const UpcomingEvents = () => {
                                             href="https://forms.gle/CH1xcrSv7wkF6g5v5"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 bg-white text-brand-black border border-white font-bold px-8 py-3.5 rounded-xl hover:bg-gray-200 transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
+                                            className="inline-flex items-center gap-2 bg-white text-brand-black border-2 border-white font-bold px-8 py-3.5 rounded-xl hover:bg-brand-red hover:text-white hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider text-sm w-fit shadow-lg"
                                         >
                                             Volunteer registration
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
