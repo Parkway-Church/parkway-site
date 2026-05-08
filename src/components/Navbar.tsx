@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
                                 <Link to="/journeyland" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Land</Link>
                                 <Link to="/kids" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Kids</Link>
                                 <Link to="/youth" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">The Park Youth</Link>
-                                <Link to="/events" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Events Calendar</Link>
+                                <Link to="/events" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Weekly Calendar</Link>
                                 <Link to="/upcoming-events" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Upcoming Events</Link>
                             </div>
                         </div>
@@ -174,7 +174,7 @@ const Navbar: React.FC = () => {
                                             <Link to="/journeyland" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Journey Land</Link>
                                             <Link to="/kids" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Journey Kids</Link>
                                             <Link to="/youth" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>The Park Youth</Link>
-                                            <Link to="/events" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Events Calendar</Link>
+                                            <Link to="/events" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Weekly Calendar</Link>
                                             <Link to="/upcoming-events" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Upcoming Events</Link>
                                         </motion.div>
                                     )}
