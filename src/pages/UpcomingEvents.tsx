@@ -129,17 +129,32 @@ const UpcomingEvents = () => {
                             )}
 
                             {/* CTA */}
-                            <a
-                                href={event.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-white text-brand-black font-bold px-8 py-3.5 rounded-xl hover:bg-brand-red hover:text-white transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
-                            >
-                                Add to Calendar
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
+                            <div className="flex flex-wrap gap-4">
+                                <a
+                                    href={event.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 bg-white/20 text-white border border-white/40 font-bold px-8 py-3.5 rounded-xl hover:bg-white/30 transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
+                                >
+                                    Add to Calendar
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </a>
+                                {(event.title.toLowerCase().includes('vbs') || event.title.toLowerCase().includes('vacation')) && (
+                                    <a
+                                        href="/images/vbs-flyer.png"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-8 py-3.5 rounded-xl hover:bg-red-700 transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
+                                    >
+                                        Register Here
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </svg>
+                                    </a>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 ))}
