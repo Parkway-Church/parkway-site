@@ -19,7 +19,7 @@ const CurrentSeries: React.FC = () => {
                 <div className="w-full md:w-1/2 relative bg-yellow-500">
                     <img
                         src="/images/harvest_field_verse.jpg"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-contain"
                         alt="Harvest Field Verse"
                     />
                 </div>
