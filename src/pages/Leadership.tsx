@@ -47,7 +47,7 @@ const Leadership = () => {
                                                 <img
                                                     src={leader.imageUrl}
                                                     alt={leader.name}
-                                                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                                    className={`w-full h-full object-cover ${leader.imagePosition || 'object-center'} transition-transform duration-700 group-hover:scale-105`}
                                                 />
                                             ) : (
                                                 <div className="w-full h-full flex items-center justify-center bg-zinc-800 text-zinc-600">

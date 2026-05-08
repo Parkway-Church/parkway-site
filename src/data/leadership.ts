@@ -6,6 +6,7 @@ export interface Leader {
     role: string;
     bio: string;
     imageUrl: string;
+    imagePosition?: string;
 }
 
 export const leadershipData: Leader[] = [
@@ -14,14 +15,16 @@ export const leadershipData: Leader[] = [
         name: "Rev. Esther Valdes",
         role: "Senior Minister",
         bio: "Rev. Esther Valdes has faithfully served in the Disciples of Christ denomination for over 20 years. Her spiritual journey began as a preteen when she accepted Jesus and developed a passion for ministry. She has overcome personal challenges with faith, raising her three children as a single mother while pursuing her education, including a Bachelor’s Degree in Psychology, a Master of Divinity from Indiana Wesleyan University, and is currently pursuing her Doctoral degree at Lexington Theological Seminary. In 2019, Rev. Valdes joined Parkway Christian Church as Associate Minister, bringing creativity, excellence, and a welcoming spirit. She was ordained in 2021 and worked alongside Dr. Rev. Charlie Wallace to guide the church through transitions and the challenges of the pandemic.In December 2024, Rev. Valdes was called as the Senior Minister of Parkway Christian Church. She looks forward to leading the congregation with vision, faith, and unity, encouraging others to deepen their relationship with Christ and embrace Gods plans for the future.",
-        imageUrl: "/images/leadership/pastor_esther.jpg"
+        imageUrl: "/images/leadership/pastor_esther.jpg",
+        imagePosition: "object-top"
     },
     {
         id: '2',
         name: "Nathan Jasso",
         role: "Worship Director",
         bio: "Nathan joined our family as Parkway's Worship Director in June, 2011.  He came to Parkway after having served as the Music Director at Tampa's First Reformed Church.  There he created and grew their Contemporary Worship service until it rivaled the traditional service in attendance.  Nathan is a graduate of the University of South Florida where he earned a Bachelor of Arts Degree in Music. At USF, Nathan participated in the University Singers, USF Opera Theater and the USF Chamber Singers.  In addition to serving Parkway, Nathan works in the Broward County Public Schools as an elementary general music teacher. He is an instructor of voice and guitar as well. With his extensive experience Nathan says his goal is to instill a love of Jesus through music and to provide music ministries to encourage the development of growing relationships with one another through Christ. Nathan is married to Natalie and they have 2 young daughters.",
-        imageUrl: "/images/leadership/Nathan.jpg"
+        imageUrl: "/images/leadership/Nathan.jpg",
+        imagePosition: "object-top"
     },
     {
         id: '3',
