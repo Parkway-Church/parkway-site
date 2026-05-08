@@ -51,14 +51,22 @@ const GrapeEventBanner = ({ event }: Props) => {
                 </div>
 
                 {/* Right: CTA */}
-                <div className="shrink-0">
+                <div className="shrink-0 flex flex-col sm:flex-row gap-4">
                     <a
                         href={event.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-8 py-4 bg-white text-[#6B21A8] font-bold rounded-xl hover:bg-purple-50 transition-colors uppercase tracking-wider text-sm shadow-lg"
+                        className="inline-block px-8 py-4 bg-white/20 text-white border border-white/40 font-bold rounded-xl hover:bg-white/30 transition-colors uppercase tracking-wider text-sm shadow-lg text-center"
                     >
                         Add to Calendar
+                    </a>
+                    <a
+                        href="https://mail.google.com/mail/u/0?ui=2&ik=4e0c7f7cb1&attid=0.0.1&permmsgid=msg-f:1864629391493243349&th=19e07e8d65b521d5&view=fimg&fur=ip&permmsgid=msg-f:1864629391493243349&sz=s0-l75-ft&attbid=ANGjdJ8CYWuIliJmSgWAecDajileGp6tq8svI9h2O-0dXGc5ZV8MQVRVJZzGjJBlsrQy2WYJrPpyCh5xKxHhzvHB4Se_7yenxlWGJZ2riw8TB0sCDRDlR2HFjpXNSsM&disp=emb&zw"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-8 py-4 bg-white text-[#6B21A8] font-bold rounded-xl hover:bg-purple-50 transition-colors uppercase tracking-wider text-sm shadow-lg text-center"
+                    >
+                        Register Here
                     </a>
                 </div>
             </div>
