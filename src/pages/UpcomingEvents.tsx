@@ -155,7 +155,7 @@ const UpcomingEvents = () => {
                                             </svg>
                                         </a>
                                         <a
-                                            href="https://forms.gle/rRhLTGrddQUzugck8"
+                                            href="https://forms.gle/CH1xcrSv7wkF6g5v5"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="inline-flex items-center gap-2 bg-white text-brand-black border border-white font-bold px-8 py-3.5 rounded-xl hover:bg-gray-200 transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
