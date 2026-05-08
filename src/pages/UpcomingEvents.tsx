@@ -143,7 +143,7 @@ const UpcomingEvents = () => {
                                 </a>
                                 {(event.title.toLowerCase().includes('vbs') || event.title.toLowerCase().includes('vacation')) && (
                                     <a
-                                        href="/images/vbs-flyer.png"
+                                        href="https://forms.gle/MPqpEjyat7Ew3EsA9"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-8 py-3.5 rounded-xl hover:bg-red-700 transition-colors uppercase tracking-wider text-sm w-fit shadow-lg"
