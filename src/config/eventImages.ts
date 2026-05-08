@@ -7,6 +7,7 @@ import bibleImg from '../assets/event_images/bible.avif';
 import serviceImg from '../assets/event_images/service.webp';
 import lifegroupImg from '../assets/event_images/lifegroup.webp';
 import grupoImg from '../assets/event_images/groupo.webp';
+import vbsImg from '../assets/event_images/vbs.png';
 
 export const keywordImageMap: Record<string, string[]> = {
     worship: [worshipImg],
@@ -18,7 +19,9 @@ export const keywordImageMap: Record<string, string[]> = {
     bible: [bibleImg],
     service: [serviceImg],
     lifegroup: [lifegroupImg],
-    grupo: [grupoImg]
+    grupo: [grupoImg],
+    vbs: [vbsImg],
+    vacation: [vbsImg]
 };
 
 export const defaultEventImage = serviceImg;
