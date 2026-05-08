@@ -8,14 +8,14 @@ const JourneyLand: React.FC = () => {
             {/* HERO SECTION - Finger Painted Style */}
             <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
                 {/* Paint Splatter Backgrounds */}
-                <div className="absolute inset-0 z-0 opacity-80">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute top-[-20%] left-[-20%] w-[80vw] h-[80vw] fill-red-400 mix-blend-multiply opacity-50 animate-pulse">
+                <div className="absolute inset-0 z-0 opacity-100">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute top-[-20%] left-[-20%] w-[80vw] h-[80vw] fill-red-500 mix-blend-multiply opacity-60 animate-pulse">
                         <path d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-46.3C87.4,-33.5,90.1,-18,88.4,-3.3C86.7,11.4,80.7,25.3,71.8,37.3C62.9,49.3,51.1,59.3,37.8,66.8C24.5,74.3,9.7,79.3,-4.2,86.6C-18.1,93.9,-31.1,103.5,-42.6,99.2C-54.1,94.9,-64,76.7,-71,60.1C-78,43.5,-82.1,28.5,-80.6,14.6C-79.1,0.7,-72,-12.1,-63.5,-22.9C-55,-33.7,-45.1,-42.5,-34.2,-51.2C-23.3,-59.9,-11.5,-68.5,1.7,-71.4C14.9,-74.3,29.8,-71.5,44.7,-76.4Z" transform="translate(100 100)" />
                     </svg>
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-[-20%] right-[-10%] w-[70vw] h-[70vw] fill-yellow-400 mix-blend-multiply opacity-50">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-[-20%] right-[-10%] w-[70vw] h-[70vw] fill-yellow-400 mix-blend-multiply opacity-60">
                         <path d="M41.7,-73.4C54.1,-65.1,64.6,-54.6,73.1,-42.6C81.6,-30.6,88.1,-17.1,87.3,-3.9C86.5,9.4,78.4,22.4,68.8,33.5C59.2,44.6,48.1,53.8,36.5,61.9C24.9,70,12.8,77,-0.7,78.2C-14.2,79.4,-29.7,74.8,-42.9,67.1C-56.1,59.4,-67,48.6,-74.6,35.8C-82.2,23,-86.5,8.2,-83.4,-5.2C-80.3,-18.6,-69.7,-30.6,-58.5,-40.8C-47.3,-51,-35.5,-59.4,-23.4,-67.8C-11.3,-76.2,1.1,-84.6,13.6,-84.6C26.1,-84.6,38.7,-76.2,51.3,-67.7L41.7,-73.4Z" transform="translate(100 100)" />
                     </svg>
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute top-[20%] right-[20%] w-[40vw] h-[40vw] fill-blue-400 mix-blend-multiply opacity-50">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute top-[20%] right-[20%] w-[40vw] h-[40vw] fill-blue-500 mix-blend-multiply opacity-60">
                         <path d="M45.7,-78.3C58.9,-71.3,69.3,-59.6,76.3,-46.8C83.3,-34,86.9,-20.1,85.3,-6.9C83.7,6.3,76.9,18.8,68.3,29.8C59.7,40.8,49.3,50.3,37.8,57.4C26.3,64.5,13.7,69.2,0.8,67.8C-12.1,66.4,-25.3,58.9,-37.2,51.1C-49.1,43.3,-59.7,35.2,-67.3,24.8C-74.9,14.4,-79.5,1.7,-77.4,-10.1C-75.3,-21.9,-66.5,-32.8,-56.3,-41.8C-46.1,-50.8,-34.5,-57.9,-22.6,-65.7C-10.7,-73.5,1.5,-82,14.5,-82C27.5,-82,40.5,-73.5,45.7,-78.3Z" transform="translate(100 100)" />
                     </svg>
                 </div>
@@ -54,8 +54,8 @@ const JourneyLand: React.FC = () => {
                         className="md:w-1/2 relative"
                     >
                         {/* Paint strokes behind image */}
-                        <div className="absolute -top-10 -left-10 w-full h-full bg-green-300 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60"></div>
-                        <div className="absolute -bottom-10 -right-10 w-full h-full bg-orange-300 rounded-[70%_30%_30%_70%/70%_70%_30%_30%] opacity-60"></div>
+                        <div className="absolute -top-10 -left-10 w-full h-full bg-green-400 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-80"></div>
+                        <div className="absolute -bottom-10 -right-10 w-full h-full bg-orange-400 rounded-[70%_30%_30%_70%/70%_70%_30%_30%] opacity-80"></div>
 
                         <img
                             src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -78,9 +78,9 @@ const JourneyLand: React.FC = () => {
                             Big fun. Big faith. Little hands.<br /> Journey Land at Parkway Christian Church is where kids learn about God through movement, creativity, and joy because messy moments often make the best memories.
                         </p>
                         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                            <span className="bg-red-100 text-red-600 px-4 py-2 rounded-full font-bold font-marker text-lg border-2 border-red-200 rotate-2">Crafts</span>
-                            <span className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full font-bold font-marker text-lg border-2 border-blue-200 -rotate-3">Music</span>
-                            <span className="bg-green-100 text-green-600 px-4 py-2 rounded-full font-bold font-marker text-lg border-2 border-green-200 rotate-1">Stories</span>
+                            <span className="bg-red-200 text-red-700 px-4 py-2 rounded-full font-bold font-marker text-lg border-2 border-red-300 rotate-2">Crafts</span>
+                            <span className="bg-blue-200 text-blue-700 px-4 py-2 rounded-full font-bold font-marker text-lg border-2 border-blue-300 -rotate-3">Music</span>
+                            <span className="bg-green-200 text-green-700 px-4 py-2 rounded-full font-bold font-marker text-lg border-2 border-green-300 rotate-1">Stories</span>
                         </div>
                     </div>
                 </div>
