@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GiveModal from './GiveModal';
 
 
 const Navbar: React.FC = () => {
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isGiveModalOpen, setIsGiveModalOpen] = useState(false);
 
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState<string | null>(null);
+
+    const lightPages = ['/leadership', '/kids', '/journeyland', '/kids-visit', '/mission', '/faith', '/volunteers', '/groups', '/events', '/upcoming-events'];
+    const isLightPage = lightPages.includes(location.pathname);
 
     const toggleSection = (section: string) => {
         setActiveSection(activeSection === section ? null : section);
@@ -26,7 +30,9 @@ const Navbar: React.FC = () => {
 
     return (
         <nav
-            className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-black/95 backdrop-blur-sm py-4' : 'bg-transparent py-6'
+            className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
+                ? 'bg-brand-black/95 backdrop-blur-sm py-4 text-white'
+                : (isLightPage ? 'bg-white/90 backdrop-blur-md py-4 text-brand-black shadow-md' : 'bg-transparent py-6 text-white')
                 }`}
         >
             <div className="container mx-auto px-4 flex justify-between items-center">
@@ -43,11 +49,11 @@ const Navbar: React.FC = () => {
                             WHO WE ARE
                         </a>
                         <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform -translate-y-2 group-hover:translate-y-0">
-                            <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md">
-                                <Link to="/mission" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Mission</Link>
-                                <Link to="/faith" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Statement of Faith</Link>
-                                <Link to="/leadership" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Leadership Team</Link>
-                                <a href="https://www.pcs-fl.net/" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">School</a>
+                            <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md text-white">
+                                <Link to="/mission" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Mission</Link>
+                                <Link to="/faith" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Statement of Faith</Link>
+                                <Link to="/leadership" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Leadership Team</Link>
+                                <a href="https://www.pcs-fl.net/" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">School</a>
                             </div>
                         </div>
                     </div>
@@ -58,14 +64,14 @@ const Navbar: React.FC = () => {
                             GET CONNECTED
                         </a>
                         <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform -translate-y-2 group-hover:translate-y-0">
-                            <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md">
-                                <Link to="/online" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Parkway Online</Link>
-                                <Link to="/groups" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Life Groups</Link>
-                                <Link to="/journeyland" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Land</Link>
-                                <Link to="/kids" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Kids</Link>
-                                <Link to="/youth" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">The Park Youth</Link>
-                                <Link to="/events" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Events Calendar</Link>
-                                <Link to="/upcoming-events" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Upcoming Events</Link>
+                            <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md text-white">
+                                <Link to="/online" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Parkway Online</Link>
+                                <Link to="/groups" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Life Groups</Link>
+                                <Link to="/journeyland" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Land</Link>
+                                <Link to="/kids" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Journey Kids</Link>
+                                <Link to="/youth" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">The Park Youth</Link>
+                                <Link to="/events" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Events Calendar</Link>
+                                <Link to="/upcoming-events" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Upcoming Events</Link>
                             </div>
                         </div>
                     </div>
@@ -75,12 +81,12 @@ const Navbar: React.FC = () => {
                             RESOURCES
                         </a>
                         <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform -translate-y-2 group-hover:translate-y-0">
-                            <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md">
-                                <Link to="/volunteers" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Volunteers</Link>
-                                <Link to="/groups" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Get Connected</Link>
-                                <Link to="/sermons" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Sermons</Link>
-                                <Link to="/videos" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Videos</Link>
-                                <Link to="/gallery" className="block px-6 py-3 text-white hover:bg-brand-red/20 hover:text-brand-red transition-colors">Gallery</Link>
+                            <div className="bg-brand-black/95 backdrop-blur-md border md:border-t-2 border-brand-red py-2 shadow-xl rounded-b-md text-white">
+                                <Link to="/volunteers" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Volunteers</Link>
+                                <Link to="/groups" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Get Connected</Link>
+                                <Link to="/sermons" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Sermons</Link>
+                                <Link to="/videos" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Videos</Link>
+                                <Link to="/gallery" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Gallery</Link>
                             </div>
                         </div>
                     </div>
@@ -94,7 +100,7 @@ const Navbar: React.FC = () => {
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-white hover:text-brand-red">
+                    <button onClick={() => setIsOpen(!isOpen)} className={`${isScrolled || !isLightPage ? 'text-white' : 'text-brand-black'} hover:text-brand-red transition-colors`}>
                         {isOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </div>
