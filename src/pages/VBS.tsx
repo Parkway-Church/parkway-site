@@ -45,10 +45,10 @@ const VBS = () => {
                         className="mb-16"
                     >
                         <h1 
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-4 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.9)] leading-tight whitespace-nowrap overflow-visible px-2 uppercase" 
-                            style={{ fontFamily: '"Inter", sans-serif' }}
+                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal mb-4 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.7)] leading-tight whitespace-nowrap overflow-visible px-2" 
+                            style={{ fontFamily: '"Permanent Marker", cursive' }}
                         >
-                            Vacation Bible School <span className="text-yellow-300 drop-shadow-[0_0_25px_rgba(253,224,71,0.9)]">26'</span>
+                            Vacation Bible School <span className="text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.7)]">26'</span>
                         </h1>
                         
                         <div className="flex flex-col items-center gap-4 mt-10">
