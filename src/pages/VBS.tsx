@@ -11,11 +11,14 @@ const VBS = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white uppercase italic">
-                            VBS <span className="text-yellow-400">2026</span>
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-white uppercase italic">
+                            Vacation Bible School <span className="text-yellow-400">26'</span>
                         </h1>
-                        <p className="text-2xl md:text-3xl font-bold mb-8 text-white/90">
-                            JUNE 8 TO 12, 2026
+                        <p className="text-2xl md:text-3xl font-bold mb-2 text-white/90">
+                            June 8-12
+                        </p>
+                        <p className="text-xl md:text-2xl font-bold mb-8 text-yellow-400 italic">
+                            Closing Celebration Sunday 14, 2026 at 10 am.
                         </p>
                         <div className="h-1 w-24 bg-yellow-400 mx-auto mb-12" />
                     </motion.div>
@@ -28,7 +31,7 @@ const VBS = () => {
                         className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 mb-12"
                     >
                         <img
-                            src="/images/vbs-flyer.png"
+                            src="/images/vbs-main.jpg"
                             alt="Vacation Bible School - Illumination Station"
                             className="w-full h-auto"
                         />
