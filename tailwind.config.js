@@ -19,6 +19,7 @@ export default {
                 roboto: ['Roboto', 'sans-serif'],
                 graffiti: ['"Permanent Marker"', 'cursive'],
                 marker: ['"Permanent Marker"', 'cursive'],
+                dancing: ['"Dancing Script"', 'cursive'],
             }
         },
     },

@@ -65,7 +65,7 @@ const Leadership = () => {
                                             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-brand-black">
                                                 {leader.name}
                                             </h2>
-                                            <h3 className="text-xl md:text-2xl text-brand-red font-semibold mb-6 uppercase tracking-wider">
+                                            <h3 className="text-2xl md:text-3xl text-brand-red font-bold mb-6 font-dancing">
                                                 {leader.role}
                                             </h3>
                                             <div className="h-1 w-20 bg-gray-400 mb-6 mx-auto md:mx-0" />
