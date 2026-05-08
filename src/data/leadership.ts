@@ -52,6 +52,7 @@ export const leadershipData: Leader[] = [
         name: "Ivan Villota",
         role: "Sound Engineer",
         bio: "Ivan Villota joined the Parkway team as our sound tech in May 2024 and has been a wonderful addition to the Parkway family. He brings a growing knowledge of audio equipment and sound systems, along with a strong attention to detail and a heart to serve. Ivan works faithfully behind the scenes to ensure that each service flows smoothly, helping create an environment where people can clearly hear the message and fully engage in worship. Whether working independently or alongside the team, he approaches every opportunity with excellence, reliability, and a genuine desire to honor God through what he does.",
-        imageUrl: "/images/leadership/Ivan.jpg"
+        imageUrl: "/images/leadership/Ivan.jpg",
+        imagePosition: "object-top"
     }
 ];
