@@ -14,7 +14,7 @@ export const leadershipData: Leader[] = [
         name: "Rev. Esther Valdes",
         role: "Senior Minister",
         bio: "Rev. Esther Valdes has faithfully served in the Disciples of Christ denomination for over 20 years. Her spiritual journey began as a preteen when she accepted Jesus and developed a passion for ministry. She has overcome personal challenges with faith, raising her three children as a single mother while pursuing her education, including a Bachelor’s Degree in Psychology, a Master of Divinity from Indiana Wesleyan University, and is currently pursuing her Doctoral degree at Lexington Theological Seminary. In 2019, Rev. Valdes joined Parkway Christian Church as Associate Minister, bringing creativity, excellence, and a welcoming spirit. She was ordained in 2021 and worked alongside Dr. Rev. Charlie Wallace to guide the church through transitions and the challenges of the pandemic.In December 2024, Rev. Valdes was called as the Senior Minister of Parkway Christian Church. She looks forward to leading the congregation with vision, faith, and unity, encouraging others to deepen their relationship with Christ and embrace Gods plans for the future.",
-        imageUrl: "/images/leadership/Esther.jpg"
+        imageUrl: "/images/leadership/pastor_esther.jpg"
     },
     {
         id: '2',
