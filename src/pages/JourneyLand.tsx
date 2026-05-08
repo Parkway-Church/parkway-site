@@ -58,7 +58,7 @@ const JourneyLand: React.FC = () => {
                         <div className="absolute -bottom-10 -right-10 w-full h-full bg-orange-300 rounded-[70%_30%_30%_70%/70%_70%_30%_30%] opacity-60"></div>
 
                         <img
-                            src="https://images.unsplash.com/photo-1596464716127-f9a0859b4afd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                             alt="Kids painting"
                             className="relative w-full h-[400px] object-cover rounded-[2rem] border-[8px] border-white shadow-xl"
                         />
