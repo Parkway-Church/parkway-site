@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { youthEvents as staticEvents, type YouthEvent } from '../data/youthEvents';
-import { fetchUpcomingEvents, type CalendarEvent } from '../services/calendarService';
+import { fetchUpcomingEvents, fetchSpecialEvent, type CalendarEvent, type GrapeBannerEvent } from '../services/calendarService';
 import { calendarConfig } from '../config/calendar';
 
 const ParkYouth: React.FC = () => {
@@ -10,13 +10,19 @@ const ParkYouth: React.FC = () => {
 
     // State for dynamic events
     const [events, setEvents] = useState<YouthEvent[] | CalendarEvent[]>(staticEvents);
+    const [specialEvent, setSpecialEvent] = useState<GrapeBannerEvent | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const loadEvents = async () => {
             try {
                 // Fetch using the youth calendar ID from config, skip 14 days ahead
-                const fetchedEvents = await fetchUpcomingEvents(3, calendarConfig.youthCalendarId, 14);
+                const [fetchedEvents, youthSpecialEvent] = await Promise.all([
+                    fetchUpcomingEvents(3, calendarConfig.youthCalendarId, 14),
+                    fetchSpecialEvent(calendarConfig.youthCalendarId)
+                ]);
+                setSpecialEvent(youthSpecialEvent);
+
                 if (fetchedEvents && fetchedEvents.length > 0) {
                     // Intercept and update Yth Night to Yth Connect
                     const updatedEvents = fetchedEvents.map(event => {
@@ -138,6 +144,91 @@ const ParkYouth: React.FC = () => {
             {/* EVENTS - Posters */}
             <section className="py-20 bg-gradient-to-t from-brand-black to-gray-900 border-t-8 border-neon-pink">
                 <div className="container mx-auto px-4">
+                    
+                    {/* Featured Special Event Banner */}
+                    {specialEvent && (
+                        <div className="max-w-6xl mx-auto mb-20">
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                className="relative overflow-hidden border-4 border-white bg-black p-1 shadow-[10px_10px_0px_#39FF14] md:shadow-[15px_15px_0px_#39FF14] flex flex-col md:flex-row gap-8 items-center"
+                            >
+                                {/* Background sticker bomb pattern */}
+                                <div 
+                                    className="absolute inset-0 opacity-10 pointer-events-none"
+                                    style={{
+                                        backgroundImage: "url('/images/park_youth/sticker_bomb_bg.png')",
+                                        backgroundSize: '400px'
+                                    }}
+                                />
+                                
+                                {/* Image Container */}
+                                <div className="w-full md:w-1/2 h-64 md:h-80 relative overflow-hidden shrink-0 border-b-4 md:border-b-0 md:border-r-4 border-white bg-zinc-900">
+                                    <img
+                                        src={specialEvent.image}
+                                        alt={specialEvent.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                                    
+                                    <div className="absolute top-4 left-4 bg-neon-pink text-black font-marker text-xl px-4 py-1.5 border-2 border-black rotate-[-3deg] shadow-[3px_3px_0px_#000]">
+                                        FEATURED EVENT
+                                    </div>
+                                </div>
+
+                                {/* Content Container */}
+                                <div className="p-6 md:p-8 flex-grow flex flex-col relative z-10 w-full">
+                                    <div className="flex flex-wrap items-center gap-4 mb-4 font-marker text-lg text-neon-yellow">
+                                        <span className="flex items-center gap-2 bg-zinc-900 border border-neon-yellow/30 px-3 py-1 rounded-full">
+                                            <svg className="w-5 h-5 text-neon-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                            {specialEvent.date}
+                                        </span>
+                                        {specialEvent.time && specialEvent.time !== 'All Day' && (
+                                            <span className="flex items-center gap-2 bg-zinc-900 border border-neon-yellow/30 px-3 py-1 rounded-full">
+                                                <svg className="w-5 h-5 text-neon-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                {specialEvent.time}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <h3 className="font-graffiti text-4xl md:text-5xl text-neon-green mb-4 leading-none tracking-wide">
+                                        {specialEvent.title}
+                                    </h3>
+
+                                    <p className="text-gray-300 text-base md:text-lg mb-8 leading-relaxed font-sans max-w-2xl">
+                                        {specialEvent.description}
+                                    </p>
+
+                                    {/* Action Buttons */}
+                                    <div className="flex flex-col sm:flex-row gap-4">
+                                        <a
+                                            href={specialEvent.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="px-8 py-3 bg-neon-pink text-black font-marker text-lg text-center hover:bg-white transition-colors border-2 border-black shadow-[4px_4px_0px_#000] active:translate-y-1 active:shadow-[1px_1px_0px_#000] uppercase"
+                                        >
+                                            ADD TO CALENDAR
+                                        </a>
+                                        <a
+                                            href="https://docs.google.com/forms/d/e/1FAIpQLSfMRjAkHgipONiRoc9yapwACcnTMHHU8_xdbn3cz3XFlTrQ/viewform"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="px-8 py-3 bg-neon-green text-black font-marker text-lg text-center hover:bg-white transition-colors border-2 border-black shadow-[4px_4px_0px_#000] active:translate-y-1 active:shadow-[1px_1px_0px_#000] uppercase"
+                                        >
+                                            REGISTER NOW
+                                        </a>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    )}
+
                     <h2 className="font-graffiti text-6xl text-center mb-16 text-white drop-shadow-[5px_5px_0px_#0EA5E9]">UPCOMING HYPE</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

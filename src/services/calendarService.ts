@@ -151,11 +151,12 @@ const transformToGrapeBannerEvent = (e: any): GrapeBannerEvent => {
     return { id: e.id, title: e.summary, date: dateDisplay, time: timeDisplay, description, image, link, location: e.location };
 };
 
-const fetchSpecialEventsRaw = async (): Promise<any[]> => {
+const fetchSpecialEventsRaw = async (targetCalendarId?: string): Promise<any[]> => {
     const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
     if (!apiKey) return [];
+    const activeCalendarId = targetCalendarId || calendarConfig.calendarId;
     const timeMin = new Date().toISOString();
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarConfig.calendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=50&singleEvents=true&orderBy=startTime`;
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(activeCalendarId)}/events?key=${apiKey}&timeMin=${timeMin}&maxResults=50&singleEvents=true&orderBy=startTime`;
     try {
         const response = await fetch(url);
         if (!response.ok) return [];
@@ -166,8 +167,8 @@ const fetchSpecialEventsRaw = async (): Promise<any[]> => {
     }
 };
 
-export const fetchSpecialEvent = async (): Promise<GrapeBannerEvent | null> => {
-    const items = await fetchSpecialEventsRaw();
+export const fetchSpecialEvent = async (targetCalendarId?: string): Promise<GrapeBannerEvent | null> => {
+    const items = await fetchSpecialEventsRaw(targetCalendarId);
     return items.length > 0 ? transformToGrapeBannerEvent(items[0]) : null;
 };
 
