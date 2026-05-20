@@ -216,7 +216,7 @@ const ParkYouth: React.FC = () => {
                                             ADD TO CALENDAR
                                         </a>
                                         <a
-                                            href="https://docs.google.com/forms/d/e/1FAIpQLSfMRjAkHgipONiRoc9yapwACcnTMHHU8_xdbn3cz3XFlTrQ/viewform"
+                                            href="https://fldisciplesregionalchurch.regfox.com/2026-summer-camp-grades-3-12"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="px-8 py-3 bg-neon-green text-black font-marker text-lg text-center hover:bg-white transition-colors border-2 border-black shadow-[4px_4px_0px_#000] active:translate-y-1 active:shadow-[1px_1px_0px_#000] uppercase"
