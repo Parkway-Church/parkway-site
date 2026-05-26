@@ -11,6 +11,7 @@ import vbsImg from '../assets/event_images/vbs.png';
 
 export const keywordImageMap: Record<string, string[]> = {
     'summer bash': ['/youthbash.PNG'],
+    'summer camp': ['/summercamp.PNG'],
     worship: [worshipImg],
     youth: [youthImg],
     community: [communityImg],

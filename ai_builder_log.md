@@ -43,6 +43,13 @@ This log serves as a record of recent changes, current architecture specificatio
 * **Details**: Added `'summer bash': ['/youthbash.PNG']` at the very top of `keywordImageMap` in `src/config/eventImages.ts`. This ensures that when the title of an event fetched from the Google Calendar contains the phrase "summer bash", it dynamically displays the new `youthbash.PNG` image.
 * **Migration Notes**: Keeping `'summer bash'` at the very top prevents it from matching more generic keywords (like `'youth'`) that are also defined in the map, preserving the generic `youth` image for general youth events.
 
+### 3. Summer Camp Event Image Configuration
+* **Files Modified**: 
+  * `src/config/eventImages.ts` (Keyword mapping)
+  * `public/summercamp.PNG` (New image asset added)
+* **Action**: Configured the specific event image call mapping for `"summer camp"`.
+* **Details**: Added `'summer camp': ['/summercamp.PNG']` at the top of `keywordImageMap` in `src/config/eventImages.ts`. This ensures that when the title of an event fetched from the Google Calendar contains the phrase "summer camp", it dynamically displays the new `summercamp.PNG` image.
+
 ---
 
 ## 🔑 Integration Credentials & Environment Variables
