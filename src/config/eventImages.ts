@@ -10,6 +10,7 @@ import grupoImg from '../assets/event_images/groupo.webp';
 import vbsImg from '../assets/event_images/vbs.png';
 
 export const keywordImageMap: Record<string, string[]> = {
+    'summer bash': ['/youthbash.PNG'],
     worship: [worshipImg],
     youth: [youthImg],
     community: [communityImg],

@@ -49,6 +49,13 @@ const ParkYouth: React.FC = () => {
                                 description: "Best week of your life. 7th grade to 10th grade",
                                 date: "JULY 5-10"
                             };
+                        } else if (titleUpper.includes('YOUTH GROUP')) {
+                            if (event.date === 'JUN 7' || event.date === 'JUN 14') {
+                                return {
+                                    ...event,
+                                    description: 'After Worship - Meet at 11:30 am in Room 2'
+                                };
+                            }
                         }
                         return event;
                     });
@@ -215,14 +222,16 @@ const ParkYouth: React.FC = () => {
                                         >
                                             ADD TO CALENDAR
                                         </a>
-                                        <a
-                                            href="https://fldisciplesregionalchurch.regfox.com/2026-summer-camp-grades-3-12"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="px-8 py-3 bg-neon-green text-black font-marker text-lg text-center hover:bg-white transition-colors border-2 border-black shadow-[4px_4px_0px_#000] active:translate-y-1 active:shadow-[1px_1px_0px_#000] uppercase"
-                                        >
-                                            REGISTER NOW
-                                        </a>
+                                        {/* {!specialEvent.title.toLowerCase().includes('summer bash') && (
+                                            <a
+                                                href="https://fldisciplesregionalchurch.regfox.com/2026-summer-camp-grades-3-12"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="px-8 py-3 bg-neon-green text-black font-marker text-lg text-center hover:bg-white transition-colors border-2 border-black shadow-[4px_4px_0px_#000] active:translate-y-1 active:shadow-[1px_1px_0px_#000] uppercase"
+                                            >
+                                                REGISTER NOW
+                                            </a>
+                                        )} */}
                                     </div>
                                 </div>
                             </motion.div>
