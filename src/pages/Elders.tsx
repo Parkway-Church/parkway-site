@@ -34,19 +34,19 @@ const Elders = () => {
 
             {/* Elders Grid Section */}
             <section className="py-20">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div className="container mx-auto px-4 max-w-7xl">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-center">
                         {eldersData.map((elder, index) => (
                             <motion.div
                                 key={elder.id}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full"
                             >
                                 {/* Photo / Placeholder Section */}
-                                <div className="w-full md:w-2/5 aspect-[4/5] md:aspect-auto bg-gradient-to-br from-zinc-800 to-zinc-950 flex items-center justify-center relative overflow-hidden shrink-0 group">
+                                <div className="aspect-square bg-gradient-to-br from-zinc-800 to-zinc-950 flex items-center justify-center relative overflow-hidden group shrink-0">
                                     {elder.imageUrl ? (
                                         <img
                                             src={elder.imageUrl}
@@ -54,30 +54,32 @@ const Elders = () => {
                                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                     ) : (
-                                        <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-400 p-6">
-                                            <div className="bg-white/10 p-5 rounded-full mb-3 backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                                                <User size={48} className="text-zinc-300" />
+                                        <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-400 p-4">
+                                            <div className="bg-white/10 p-4 rounded-full mb-2 backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                                                <User size={36} className="text-zinc-300" />
                                             </div>
-                                            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Photo Coming Soon</span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Photo Coming Soon</span>
                                         </div>
                                     )}
                                 </div>
 
                                 {/* Content Section */}
-                                <div className="p-8 flex flex-col justify-between w-full relative">
+                                <div className="p-5 flex flex-col justify-between flex-grow relative">
                                     {/* Quote Icon Background */}
-                                    <div className="absolute top-4 right-4 text-brand-red/5 pointer-events-none">
-                                        <Quote size={80} />
+                                    <div className="absolute top-2 right-2 text-brand-red/5 pointer-events-none">
+                                        <Quote size={40} />
                                     </div>
 
-                                    <div className="relative z-10">
-                                        <h3 className="text-2xl font-bold text-brand-black mb-1">
-                                            {elder.name}
-                                        </h3>
-                                        <p className="text-xs uppercase tracking-widest text-brand-red font-bold mb-6">
-                                            Elder
-                                        </p>
-                                        <p className="text-gray-600 italic leading-relaxed relative text-base pl-4 border-l-2 border-brand-red/40">
+                                    <div className="relative z-10 flex flex-col h-full justify-between">
+                                        <div>
+                                            <h3 className="text-lg font-bold text-brand-black mb-0.5 line-clamp-1">
+                                                {elder.name}
+                                            </h3>
+                                            <p className="text-[10px] uppercase tracking-widest text-brand-red font-bold mb-3">
+                                                Elder
+                                            </p>
+                                        </div>
+                                        <p className="text-gray-600 italic leading-relaxed text-sm pl-2 border-l border-brand-red/30 line-clamp-4">
                                             {elder.quote}
                                         </p>
                                     </div>
