@@ -65,6 +65,7 @@ const Footer: React.FC = () => {
                         <li><Link to="/mission" className="hover:text-white transition-colors">Our Mission</Link></li>
                         <li><Link to="/faith" className="hover:text-white transition-colors">Our Statement of Faith</Link></li>
                         <li><Link to="/leadership" className="hover:text-white transition-colors">Our Leadership Team</Link></li>
+                        <li><Link to="/elders" className="hover:text-white transition-colors">Circle of Elders</Link></li>
                         <li><a href="https://www.pcs-fl.net/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">School</a></li>
                     </ul>
                 </div>

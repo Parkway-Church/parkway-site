@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
-    const lightPages = ['/leadership', '/kids', '/journeyland', '/kids-visit', '/mission', '/faith', '/volunteers', '/groups', '/events', '/upcoming-events'];
+    const lightPages = ['/leadership', '/elders', '/kids', '/journeyland', '/kids-visit', '/mission', '/faith', '/volunteers', '/groups', '/events', '/upcoming-events'];
     const isLightPage = lightPages.includes(location.pathname);
 
     const toggleSection = (section: string) => {
@@ -53,6 +53,7 @@ const Navbar: React.FC = () => {
                                 <Link to="/mission" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Mission</Link>
                                 <Link to="/faith" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Statement of Faith</Link>
                                 <Link to="/leadership" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Our Leadership Team</Link>
+                                <Link to="/elders" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">Circle of Elders</Link>
                                 <a href="https://www.pcs-fl.net/" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 hover:bg-brand-red/20 hover:text-brand-red transition-colors">School</a>
                             </div>
                         </div>
@@ -139,6 +140,7 @@ const Navbar: React.FC = () => {
                                             <Link to="/mission" className="text-base text-gray-300 hover:text-brand-white pt-2" onClick={() => setIsOpen(false)}>Our Mission</Link>
                                             <Link to="/faith" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Our Statement of Faith</Link>
                                             <Link to="/leadership" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Our Leadership Team</Link>
+                                            <Link to="/elders" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>Circle of Elders</Link>
                                             <a href="https://www.pcs-fl.net/" target="_blank" rel="noopener noreferrer" className="text-base text-gray-300 hover:text-brand-white" onClick={() => setIsOpen(false)}>School</a>
                                         </motion.div>
                                     )}

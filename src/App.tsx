@@ -19,6 +19,7 @@ import UpcomingEvents from './pages/UpcomingEvents';
 import ParkwayOnline from './pages/ParkwayOnline';
 import Giving from './pages/Giving';
 import KidsVisit from './pages/KidsVisit';
+import Elders from './pages/Elders';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/live" element={<Live />} />
         <Route path="/mission" element={<OurMission />} />
         <Route path="/leadership" element={<Leadership />} />
+        <Route path="/elders" element={<Elders />} />
         <Route path="/faith" element={<StatementOfFaith />} />
         <Route path="/sermons" element={<Sermons />} />
         <Route path="/videos" element={<Videos />} />
