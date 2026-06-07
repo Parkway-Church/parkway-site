@@ -8,80 +8,68 @@ export interface Elder {
 export const eldersData: Elder[] = [
     {
         id: '1',
-        name: 'Elder Name 1',
-        quote: '"This is a placeholder quote for the first member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Fabian Wojcicchon',
+        quote: 'Faithfully answering God\'s call to serve and show Gods love to others.',
+        imageUrl: '/images/elders/fabian-wojcicchon.jpg'
     },
     {
         id: '2',
-        name: 'Elder Name 2',
-        quote: '"This is a placeholder quote for the second member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Ruth Miller',
+        quote: 'Serving with a heart for God and a love for people.',
+        imageUrl: '/images/elders/ruth-miller.jpg'
     },
     {
         id: '3',
-        name: 'Elder Name 3',
-        quote: '"This is a placeholder quote for the third member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Leslie Gunter',
+        quote: 'Faithfully serving wherever God leads.',
+        imageUrl: '/images/elders/leslie-gunter.jpg'
     },
     {
         id: '4',
-        name: 'Elder Name 4',
-        quote: '"This is a placeholder quote for the fourth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Kathy Schwab',
+        quote: 'Living out God\'s love through service, prayer and encouragement.',
+        imageUrl: '/images/elders/kathy-schwab.jpg'
     },
     {
         id: '5',
-        name: 'Elder Name 5',
-        quote: '"This is a placeholder quote for the fifth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'David Weaver',
+        quote: 'Serving God and loving people every step of the way.',
+        imageUrl: '/images/elders/david-weaver.jpg'
     },
     {
         id: '6',
-        name: 'Elder Name 6',
-        quote: '"This is a placeholder quote for the sixth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Hyacinth Holness',
+        quote: 'Serving with compassion, humility, and grace.',
+        imageUrl: '/images/elders/hyacinth-holness.jpg'
     },
     {
         id: '7',
-        name: 'Elder Name 7',
-        quote: '"This is a placeholder quote for the seventh member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Arnold Ramos',
+        quote: 'Following Jesus and encouraging others along the way.',
+        imageUrl: '/images/elders/arnold-ramos.jpg'
     },
     {
         id: '8',
-        name: 'Elder Name 8',
-        quote: '"This is a placeholder quote for the eighth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Karen Ramos',
+        quote: 'Seeking God\'s wisdom and sharing His love.',
+        imageUrl: '/images/elders/karen-ramos.jpg'
     },
     {
         id: '9',
-        name: 'Elder Name 9',
-        quote: '"This is a placeholder quote for the ninth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Julian Castro',
+        quote: 'Guided by faith, strengthened by prayer, and called to serve.',
+        imageUrl: '/images/elders/julian-castro.jpg'
     },
     {
         id: '10',
-        name: 'Elder Name 10',
-        quote: '"This is a placeholder quote for the tenth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Sue Gagnon',
+        quote: 'Helping others experience the hope found in Christ.',
+        imageUrl: '/images/elders/sue-gagnon.jpg'
     },
     {
         id: '11',
-        name: 'Elder Name 11',
-        quote: '"This is a placeholder quote for the eleventh member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
-    },
-    {
-        id: '12',
-        name: 'Elder Name 12',
-        quote: '"This is a placeholder quote for the twelfth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
-    },
-    {
-        id: '13',
-        name: 'Elder Name 13',
-        quote: '"This is a placeholder quote for the thirteenth member of the Circle of Elders. Once provided, the actual quote will be displayed here."',
-        imageUrl: ''
+        name: 'Fernando Henriquez',
+        quote: 'Growing in Christ and helping others do the same.',
+        imageUrl: '/images/elders/fernando-henriquez.jpg'
     }
 ];

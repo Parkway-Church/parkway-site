@@ -72,7 +72,7 @@ const Elders = () => {
 
                                     <div className="relative z-10 flex flex-col h-full justify-between">
                                         <div>
-                                            <h3 className="text-lg font-bold text-brand-black mb-0.5 line-clamp-1">
+                                            <h3 className="text-xl text-brand-black mb-0.5 line-clamp-1" style={{ fontFamily: "'Dancing Script', cursive", fontWeight: 700 }}>
                                                 {elder.name}
                                             </h3>
                                             <p className="text-[10px] uppercase tracking-widest text-brand-red font-bold mb-3">
