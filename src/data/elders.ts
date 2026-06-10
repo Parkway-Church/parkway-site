@@ -71,5 +71,11 @@ export const eldersData: Elder[] = [
         name: 'Fernando Henriquez',
         quote: 'Growing in Christ and helping others do the same.',
         imageUrl: '/images/elders/fernando-henriquez.jpg'
+    },
+    {
+        id: '12',
+        name: 'Sandy Beamsderfer',
+        quote: 'Dedicated to serving God and sharing His love with others.',
+        imageUrl: '/images/elders/sandy-beamsderfer.webp'
     }
 ];
