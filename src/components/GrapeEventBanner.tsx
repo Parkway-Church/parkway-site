@@ -60,14 +60,6 @@ const GrapeEventBanner = ({ event }: Props) => {
                     >
                         Add to Calendar
                     </a>
-                    <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSfMRjAkHgipONiRoc9yapwACcnTXTMHHU8_xdbn3cz3XFlTrQ/viewform"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-8 py-4 bg-white text-[#6B21A8] font-bold rounded-xl hover:bg-purple-50 transition-colors uppercase tracking-wider text-sm shadow-lg text-center"
-                    >
-                        Register Here
-                    </a>
                 </div>
             </div>
         </motion.div>
