@@ -77,5 +77,11 @@ export const eldersData: Elder[] = [
         name: 'Sandy Beamsderfer',
         quote: 'Dedicated to serving God and sharing His love with others.',
         imageUrl: '/images/elders/sandy-beamsderfer.webp'
+    },
+    {
+        id: '13',
+        name: 'Jeanne Alonso',
+        quote: 'Serving the congregation with joy, dedication, and faith.',
+        imageUrl: '/images/elders/jeanne-alonso.webp'
     }
 ];
