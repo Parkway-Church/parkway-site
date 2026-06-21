@@ -58,7 +58,7 @@ const GrapeEventBanner = ({ event }: Props) => {
                         rel="noopener noreferrer"
                         className="inline-block px-8 py-4 bg-white/20 text-white border border-white/40 font-bold rounded-xl hover:bg-white/30 transition-colors uppercase tracking-wider text-sm shadow-lg text-center"
                     >
-                        Add to Calendar
+                        {event.buttonText || 'Add to Calendar'}
                     </a>
                 </div>
             </div>

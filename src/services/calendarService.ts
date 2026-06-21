@@ -22,7 +22,78 @@ export interface GrapeBannerEvent {
     image: string;
     link: string;
     location?: string;
+    buttonText?: string;
 }
+
+/**
+ * Helper to extract registration link from event description HTML.
+ */
+export const extractRegistrationLink = (descriptionHtml: string): string | null => {
+    if (!descriptionHtml) return null;
+
+    // Regex to match anchor tags and extract href and inner text
+    const anchorRegex = /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+    const links: { href: string; text: string }[] = [];
+    let match;
+
+    while ((match = anchorRegex.exec(descriptionHtml)) !== null) {
+        links.push({
+            href: match[1],
+            text: match[2].replace(/<[^>]*>/g, '').trim() // strip inner tags if any
+        });
+    }
+
+    // 1. Look for anchor tag whose visible text contains 'register' or 'registration' (case-insensitive)
+    for (const link of links) {
+        if (/register|registration/i.test(link.text)) {
+            return link.href;
+        }
+    }
+
+    // 2. Look for the word 'registration' or 'register' in the HTML (case-insensitive) and find the first URL after it
+    const lowerHtml = descriptionHtml.toLowerCase();
+    const regIndex = lowerHtml.indexOf('registration');
+    const registerIndex = lowerHtml.indexOf('register');
+    
+    // Choose the earliest occurrence of either word
+    let targetIndex = -1;
+    if (regIndex !== -1 && registerIndex !== -1) {
+        targetIndex = Math.min(regIndex, registerIndex);
+    } else if (regIndex !== -1) {
+        targetIndex = regIndex;
+    } else if (registerIndex !== -1) {
+        targetIndex = registerIndex;
+    }
+
+    if (targetIndex !== -1) {
+        const afterText = descriptionHtml.substring(targetIndex);
+        
+        // Find the first <a> tag href in the text after "registration" or "register"
+        const firstLinkAfter = afterText.match(/<a\s+[^>]*href=["']([^"']+)["']/i);
+        if (firstLinkAfter && firstLinkAfter[1]) {
+            return firstLinkAfter[1];
+        }
+
+        // If no <a> tag after it, look for a plain URL (http/https) in the text after it
+        const firstUrlAfter = afterText.match(/https?:\/\/[^\s<"']+/i);
+        if (firstUrlAfter && firstUrlAfter[0]) {
+            const url = firstUrlAfter[0];
+            const isImage = /\.(jpg|jpeg|png|gif|webp|avif|svg)(\?.*)?$/i.test(url);
+            if (!isImage) {
+                return url;
+            }
+        }
+    }
+
+    // 3. Fallback: Check if there's any link that matches common registration platforms
+    for (const link of links) {
+        if (/forms\.gle|docs\.google\.com\/forms|regfox|eventbrite/i.test(link.href)) {
+            return link.href;
+        }
+    }
+
+    return null;
+};
 
 /**
  * Fetches the upcoming events from the configured Google Calendar.
@@ -99,14 +170,16 @@ export const fetchUpcomingEvents = async (maxResults: number = 3, targetCalendar
                 location: event.location
             });
 
+            const registrationLink = extractRegistrationLink(descriptionHtml);
+
             return {
                 id: event.id,
                 title: event.summary,
                 date: formattedDate,
                 description: truncatedDesc,
                 image: imageUrl,
-                link: googleCalendarLink,
-                buttonText: 'Add to Calendar'
+                link: registrationLink || googleCalendarLink,
+                buttonText: registrationLink ? 'Register Now' : 'Add to Calendar'
             };
         });
     } catch (error) {
@@ -146,9 +219,21 @@ const transformToGrapeBannerEvent = (e: any): GrapeBannerEvent => {
     const image = getEventImage(e.summary, imgMatch?.[1] ?? null);
     const cleanDesc = descHtml.replace(/<[^>]*>?/gm, '').trim();
     const description = cleanDesc.length > 300 ? cleanDesc.substring(0, 300) + '...' : cleanDesc;
-    const link = generateGoogleCalendarLink({ title: e.summary, description: descHtml, startDate: startRaw, endDate: endRaw, location: e.location });
+    const googleCalendarLink = generateGoogleCalendarLink({ title: e.summary, description: descHtml, startDate: startRaw, endDate: endRaw, location: e.location });
 
-    return { id: e.id, title: e.summary, date: dateDisplay, time: timeDisplay, description, image, link, location: e.location };
+    const registrationLink = extractRegistrationLink(descHtml);
+
+    return { 
+        id: e.id, 
+        title: e.summary, 
+        date: dateDisplay, 
+        time: timeDisplay, 
+        description, 
+        image, 
+        link: registrationLink || googleCalendarLink, 
+        location: e.location,
+        buttonText: registrationLink ? 'Register Now' : 'Add to Calendar'
+    };
 };
 
 const fetchSpecialEventsRaw = async (targetCalendarId?: string): Promise<any[]> => {
