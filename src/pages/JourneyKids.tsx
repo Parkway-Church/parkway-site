@@ -135,7 +135,8 @@ const JourneyKids: React.FC = () => {
                                 </p>
 
                                 <div className="bg-zinc-900/80 rounded-2xl p-6 text-neon-green font-graffiti border-2 border-neon-green border-dashed backdrop-blur-sm group-hover:bg-zinc-800 transition-colors">
-                                    <p className="mb-2">SUNDAYS @ 11:30 AM</p>
+                                    <p className="mb-1">SUNDAYS @ 11:30 AM</p>
+                                    <p className="mb-3">TUESDAYS @ 6:30 PM</p>
                                     <div className="flex items-center gap-2 text-white font-sans text-sm font-bold uppercase tracking-wider">
                                         Enter The Park <span>→</span>
                                     </div>
