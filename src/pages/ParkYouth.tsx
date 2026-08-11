@@ -139,12 +139,12 @@ const ParkYouth: React.FC = () => {
                         <div className="bg-black border-2 border-neon-green p-6 rounded-3xl transform rotate-1 shadow-[0_0_20px_#39FF14]">
                             <h3 className="font-graffiti text-3xl text-neon-green mb-2">MIDDLE SCHOOL + HIGH SCHOOL</h3>
                             <p className="font-sans text-gray-300 font-semibold text-lg mb-1">Sundays @ 11:30 AM</p>
-                            <p className="font-sans text-gray-400">Chaos + Truth. Real talk + Deep Dive.</p>
+                            <p className="font-sans text-gray-400">Truth. Real talk + Deep Dive.</p>
                         </div>
                         <div className="bg-black border-2 border-neon-yellow p-6 rounded-3xl transform -rotate-1 shadow-[0_0_20px_#FAFF00]">
                             <h3 className="font-graffiti text-3xl text-neon-yellow mb-2">YOUTH NIGHTS</h3>
-                            <p className="font-sans text-gray-300 font-semibold text-lg mb-1">Every Tuesday Night</p>
-                            <p className="font-sans text-gray-400">6:30 PM – 8:30 PM</p>
+                            <p className="font-sans text-gray-300 font-semibold text-lg mb-1">Your Crew. Your Night. Your Place.</p>
+                            <p className="font-sans text-gray-400">Every Tuesday Night | 6:30 PM – 8:30 PM</p>
                         </div>
                     </div>
                 </div>
