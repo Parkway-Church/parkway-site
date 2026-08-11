@@ -25,7 +25,7 @@ export const lifeGroupsData: LifeGroup[] = [
         time: "7:00 PM",
         location: "Parkway Christian Church Room 3",
         bio: "Our Love Is The Way Life Group is a place where we learn to love the way Jesus loved. We meet weekly in Room 3 and are challenged by the Word to think outside of our comfort zone and grow together.",
-        imageUrl: "/life-group-logo.jpg"
+        imageUrl: "/love-is-the-way.jpg"
     },
     {
         id: '3',
