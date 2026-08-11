@@ -48,44 +48,38 @@ const LifeGroups = () => {
                                 >
                                     {/* Image Section */}
                                     <div className="w-full md:w-1/2">
-                                        <div className="relative aspect-[4/3] w-full bg-gray-200 rounded-lg overflow-hidden shadow-2xl group">
+                                        <div className="relative aspect-[16/9] w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-gray-200 group">
                                             {group.imageUrl ? (
                                                 <img
                                                     src={group.imageUrl}
                                                     alt={group.name}
-                                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                                                 />
                                             ) : (
                                                 <div className="w-full h-full flex items-center justify-center bg-zinc-800 text-zinc-600">
                                                     No Image Available
                                                 </div>
                                             )}
-                                            {/* Decorative overlay */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent opacity-60" />
-
-                                            {/* Overlaid Details */}
-                                            <div className="absolute bottom-0 left-0 p-6 text-white w-full bg-gradient-to-t from-black/80 to-transparent">
-                                                <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-wider">
-                                                    <span className="bg-brand-red px-3 py-1 rounded-full">{group.day} @ {group.time}</span>
-                                                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/30">{group.location}</span>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
 
                                     {/* Content Section */}
                                     <div className="w-full md:w-1/2 flex flex-col justify-center">
-                                        <div className={`${isEven ? 'md:text-left' : 'md:text-left'} text-center md:text-left`}>
-                                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-black">
+                                        <div className="text-center md:text-left">
+                                            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-brand-black">
                                                 {group.name}
                                             </h2>
+
+                                            <div className="flex flex-wrap gap-3 text-sm font-bold uppercase tracking-wider mb-4 justify-center md:justify-start">
+                                                <span className="bg-brand-red text-white px-3.5 py-1.5 rounded-full shadow-sm">{group.day} @ {group.time}</span>
+                                                <span className="bg-gray-800 text-white px-3.5 py-1.5 rounded-full shadow-sm">{group.location}</span>
+                                            </div>
 
                                             <div className="h-1 w-20 bg-gray-400 mb-6 mx-auto md:mx-0" />
 
                                             <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-wrap mb-8">
                                                 {group.bio}
                                             </p>
-
                                         </div>
                                     </div>
                                 </motion.div>

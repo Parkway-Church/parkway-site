@@ -16,7 +16,7 @@ export const lifeGroupsData: LifeGroup[] = [
         time: "7:00 PM",
         location: "Parkway Christian Church",
         bio: "La Merienda es un grupo de personas imperfectas que se reúnen semanalmente en el salón 3 para dialogar de la palabra de Dios, tener conversaciones sobre las realidades de la vida, y oramos los unos por los otros y nunca falta una taza de café en la mano. Estás invitado a compartir con nosotros, te esperamos.",
-        imageUrl: "/grupo-de-vida-espanol.png"
+        imageUrl: "/grupo-de-vida-espanol.jpg"
     },
     {
         id: '2',
