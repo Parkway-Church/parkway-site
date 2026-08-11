@@ -24,13 +24,13 @@ const ParkYouth: React.FC = () => {
                 setSpecialEvent(youthSpecialEvent);
 
                 if (fetchedEvents && fetchedEvents.length > 0) {
-                    // Intercept and update Yth Night to Yth Connect
+                    // Intercept and update to Youth Night
                     const updatedEvents = fetchedEvents.map(event => {
                         const titleUpper = event.title.toUpperCase();
                         if (titleUpper.includes('YTH NIGHT') || titleUpper.includes('YTH CONNECT') || titleUpper.includes('YOUTH NIGHT') || titleUpper.includes('YOUTH CONNECT')) {
                             return {
                                 ...event,
-                                title: 'YTH CONNECT',
+                                title: 'YOUTH NIGHT',
                                 description: 'Real conversations. Real faith. Real Community.',
                                 image: '/images/park_youth/yth_connect.jpg'
                             };
